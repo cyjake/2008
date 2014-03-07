@@ -1,0 +1,207 @@
+/* base.css for general use */
+body { 
+  font-family: "Microsoft Yahei", "Arial";
+  font-size: 10pt; text-align: center;
+  margin: 0; padding: 0; border: 0;
+  background-color: white;
+}
+/* clear up floats */
+br.clear { 
+  clear: both; 
+} 
+
+img {
+  border: 0;
+}
+
+/* greet properties */
+#greet {
+  font-size: 90%; padding: 0 1em 4em 1em; 
+  color: #414141; background: url("../images/bg.png") repeat-x;
+}
+#greet .email {
+  float: left; font-weight: bold;
+}
+#user {
+  text-align: right;  
+}
+#user input {
+  padding: 0; font-size: 90%; border: 0; 
+}
+
+/* content */
+#cont p.first:first-letter {
+  float: left; color: white; margin: 0.1em; padding: 0.2em;
+  background: url("../images/p_first.jpg") top left no-repeat;
+  font-size: 180%;
+}
+
+/* footer */
+#footer {
+  font-weight: bold; font-size: 90%; color: #414141;
+}
+
+/* page layout */
+
+/* wiki & blog layout */
+#wiki {
+  text-align: left; margin: 0 auto;
+  width: 64em;
+}
+/* asterisk selector can be recognized by IE only. */
+* html #wiki {
+  width: 64em;
+}
+/* content and sidebar */
+#wiki #cont {
+  width: 52em; float: left;
+}
+#side {
+  width: 10em; float: right; padding: 1em 1em 0 0;
+}
+
+/* major link's style */
+a:link, a:visited {
+  text-decoration: none; color: black;
+}
+a:hover, a:active { 
+  color: #055;  font-weight: bold;
+}
+
+/* navigator bar */
+.nav { 
+  width: 100%; background: #055;  
+  padding: 0; margin: 0; font-size: 90%;
+}
+.nav li { 
+  display: inline; padding-left: 2em; 
+}
+.nav li:first-child { 
+  padding: 0; 
+}
+.nav li a:link, .nav li a:visited { 
+  color: white; 
+}
+.nav li a:hover, .nav li a:active {
+  font-weight: normal;
+}
+
+/* greet */
+#greet {			/* rewrite padding to fit navigator */
+  padding: 0.25em 1em 2em 1em; color: #055;
+}
+#greet h1 {
+  font-size: 240%; font-style: italic; color: green; margin: 1em 0 0 0;
+}
+#greet h2 {
+  margin: 0; color: #055; font: italic 100% normal "Segeo UI"; 
+}
+
+/* content settings*/
+/* table of contents */
+#cont .toc {
+  background: url("../images/toc_background.jpg") top right no-repeat;
+}
+#cont .toc h2 {
+  margin-bottom: 0;
+}
+#cont .toc dl {
+  margin: 2px 0 2px 0; padding: 0;
+}
+#cont .toc dd {
+  margin: 0; padding: 0 0 0 36px; border-left: dotted 1px #055;
+}
+#cont .toc a:link, #cont .toc a:visited { /* miracle */
+  padding-left: 12px;
+  background-image: url(../images/mark-grey.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  font-weight: normal; color: black;
+}
+#cont .toc a:hover, #cont .toc a:active {
+  padding-left: 14px;
+}
+/* in detail */
+#cont a {
+  font-weight: bold; color: #055;
+}
+a.image-link {
+  float: right; padding: 0.2em; margin: 0.3em; 
+}
+a.image-link:link, a.image-link:visited {
+  border: 1px solid white;
+}
+a.image-link:hover, a.image-link:active {
+  border: 1px solid #414141; background: #dbdbdb;
+}
+#cont h2 {
+  font-size: 140%; color: #055;  
+}
+#cont h3 {
+  font-size: 120%; color: #055;
+}
+#cont h4 {
+  font-size: 100%; color: #055;
+}
+pre.src, pre.example {
+  padding: 0.5em 1em; font-size: 90%;
+  border: solid 1px #dbdbdb;
+  margin: 0.5em;
+}
+pre.example {
+  background-color: silver;
+}
+blockquote {
+/*   background: url("../images/quote.png") no-repeat top left; */
+  margin: 0; border: 0; padding: 0 1em;
+  border-left: 5px solid #dbdbdb;
+/*   font-style: italic; */
+}
+blockquote em {
+  font-weight: bold;
+}
+.pic {
+  padding: 0.5em;		/* float: right;  */
+}
+table.image {
+  margin: 0.5em; 
+}
+.image-caption {
+  font-size: 90%; font-style: italic;
+}
+#cont strong {
+  color: #055;
+}
+#cont dd {
+  margin: 0; padding-left: 1em;
+}
+p.footnote { 
+  font-size: 90%; 
+}
+#cont {
+  list-style-image: url("../images/star.gif");
+}
+
+/* side */
+#side h3 { 
+  background-color: #055; font-size: 90%; color: white; 
+  margin: 0; padding: 0.125em 0.125em; 
+}
+#side img {
+  padding: 0.25em;
+}
+#side ul { 
+  background: url("../images/bg.png") repeat-x;
+  margin: 0 0 1em 0; padding: 0.125em 0.25em; list-style: none;
+}
+#side li { 
+  font-size: 90%; display: block; padding: 0.125em 0; 
+}
+
+/* footer block*/
+#footer {
+  margin-top: -4em; text-align: right; color: white; 
+}
+#footer p { 
+  background-color: #055; margin: 0; font-size: 90%; text-align: center;   
+}

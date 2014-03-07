@@ -1,0 +1,20 @@
+* foo...
+
+<src type="c">
+#include <stdio.h>
+void main() {
+    
+    printf("Hello.\n");
+}
+</src>
+
+<src type="perl">
+while (<>) {
+    # Your code goes here.
+    print;
+}
+</src>
+
+<img src="../temp/images/nami.png" align="left">nami@one piece</img>
+
+<img src="../images/debian_logo.png" />

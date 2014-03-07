@@ -1,0 +1,8 @@
+# image name specifics
+# for complang page
+<image_name>_small.<file_extension>
+# for specific page
+<image_name>.<file_extension>
+
+# image width x height for complang page
+width=120

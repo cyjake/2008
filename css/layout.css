@@ -1,0 +1,29 @@
+/* page layout */
+
+/* wiki & blog layout */
+#wiki, #blog {
+  text-align: left; margin: 0 auto;
+  width: 64em;
+}
+/* asterisk selector can be recognized by IE only. */
+* html #wiki, #blog {
+  width: 64em;
+}
+/* content and sidebar */
+#wiki #cont {
+  width: 52em; float: left;
+}
+#blog #cont {
+  width: 50em; float: left;
+}
+/* The gap between content and sidebar in IE is much wider than that in 
+ * firefox, thus we can make content width little bigger. 
+ */
+* html #blog #cont {	
+  width: 50em;
+}
+#side {
+  width: 10em; float: right; padding: 1em 1em 0 0;
+}
+
+
