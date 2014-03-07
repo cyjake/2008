@@ -1,3 +1,3 @@
-# 2008.cyj.me
+# cyj.me/2008
 
 Developed with Emacs Muse.
