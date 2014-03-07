@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>ACPID - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>ACPID</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">What is ACPID</a></dt>
+<dt><a href="#sec2">Configurations in Linux</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">Fn Key Surpport</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec4">Shell Script Source</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+What is ACPID</h2>
+
+
+<h2><a name="sec2" id="sec2"></a>
+Configurations in Linux</h2>
+
+<h3><a name="sec3" id="sec3"></a>
+Fn Key Surpport</h3>
+
+<p class="first">最近又有大更新，欣喜地发现 VOLUPBTN 与 VOLMUTE 甚至屏幕亮度调节都能用
+了，然而却同时发现本来唯一可用的 VOLDOWNBTN 现在成了拖后腿的人。人生真
+奇妙，无奈记录下自己以前把这东西搞定的方式，希望以后用不到。</p>
+
+<p>实际上 /etc/apci/ 目录下那些 dot sh 文件只是对基本的命令的包装而已，比
+如以前可用的 VOLDOWNBTN，打开相应的 voldownbtn.sh，可以看到它先测试
+acpi 是否可用，然后读入一堆记录对应键值的常量，再通过 acpi_fakekey 调
+用相应的基本命令进行处理，OSD 和基本的效果什么的（音量、亮度等调节）。
+所以看到这里你可以先自己尝试一下，执行如下步骤：</p>
+
+<pre class="example">
+# xev 
+</pre>
+通过上面这个找到自己比如 Fn + F3 的键值，我的是 114 ，然后
+
+<pre class="example">
+# acpi_fakekey 114
+</pre>
+就看到实际效果了。
+
+<p>那么基本的命令是什么呢？在音量调节上，是 amixer。如果你使用 GNOME 的
+话，可以打开 Multimedia -&gt; Volume Control，每列上方都名字，按从左到右
+的顺序是：Master Headphone PCM …… 不一而足。现在，在终端里面执行：</p>
+
+<pre class="example">
+# amixer get 'Master'
+</pre>
+可以看到如下结果：
+
+<pre class="example">
+Simple mixer control 'Master',0
+  Capabilities: pvolume pswitch
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 31
+  Mono:
+  Front Left: Playback 11 [35%] [-30.00dB] [on]
+  Front Right: Playback 11 [35%] [-30.00dB] [on]
+</pre>
+如果你也看到类似结果的话请再执行上面提到的 acpi 命令，然后再让电脑执行
+本命令看看，看到结果了吧？走到这一步，就离自己写 voldownbtn.sh 距离不
+远了。man 一下 amixer 的命令参数，就可以开始动手了，闲话休提，贴代码如
+下：
+
+<h4><a name="sec4" id="sec4"></a>
+Shell Script Source</h4>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .builtin {
+        /* font-lock-builtin-face */
+        color: #7fffd4;
+      }
+      .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .sh-quoted-exec {
+        /* sh-quoted-exec */
+        color: #fa8072;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/bin/sh
+</span><span class="comment-delimiter"># </span><span class="comment">voldownbtn.sh
+</span>
+<span class="builtin">test</span> -f /usr/share/acpi-support/power-funcs || <span class="keyword">exit</span> 0
+
+<span class="variable-name">HEADPHONE_VOLUME</span>=$(<span class="sh-quoted-exec">cat</span> /var/local/volume)
+
+<span class="keyword">if</span> [ <span class="string">"$HEADPHONE_VOLUME"</span> -gt 1 ]; <span class="keyword">then</span>
+    <span class="variable-name">HEADPHONE_VOLUME</span>=$(( $<span class="variable-name">HEADPHONE_VOLUME</span> - 2 ))
+    <span class="builtin">echo</span> $<span class="variable-name">HEADPHONE_VOLUME</span> &gt; /var/local/volume
+    <span class="builtin">echo</span> <span class="string">"HEADPHONE_VOLUME=$HEADPHONE_VOLUME"</span>
+    [ -x /usr/bin/amixer ] &amp;&amp; /usr/bin/amixer sset <span class="string">'Headphone'</span> 2- &gt; /dev/null
+<span class="keyword">fi</span>
+</pre>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .builtin {
+        /* font-lock-builtin-face */
+        color: #7fffd4;
+      }
+      .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .sh-quoted-exec {
+        /* sh-quoted-exec */
+        color: #fa8072;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/bin/sh
+</span><span class="comment-delimiter"># </span><span class="comment">volupbtn.sh
+</span>
+<span class="builtin">test</span> -f /usr/share/acpi-support/power-funcs || <span class="keyword">exit</span> 0
+
+<span class="variable-name">HEADPHONE_VOLUME</span>=$(<span class="sh-quoted-exec">cat</span> /var/local/volume)
+
+<span class="keyword">if</span> [ <span class="string">"$HEADPHONE_VOLUME"</span> -lt 31 ]; <span class="keyword">then</span>
+    <span class="variable-name">HEADPHONE_VOLUME</span>=$(( $<span class="variable-name">HEADPHONE_VOLUME</span> + 2 ))
+    <span class="builtin">echo</span> $<span class="variable-name">HEADPHONE_VOLUME</span> &gt; /var/local/volume
+    <span class="builtin">echo</span> <span class="string">"HEADPHONE_VOLUME=$HEADPHONE_VOLUME"</span>
+    [ -x /usr/bin/amixer ] &amp;&amp; /usr/bin/amixer sset <span class="string">'Headphone'</span> 2+ &gt; /dev/null
+<span class="keyword">fi</span>
+</pre>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .builtin {
+        /* font-lock-builtin-face */
+        color: #7fffd4;
+      }
+      .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .sh-quoted-exec {
+        /* sh-quoted-exec */
+        color: #fa8072;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/bin/sh
+</span><span class="comment-delimiter">#</span><span class="comment">mutebtn.sh
+</span>
+<span class="builtin">test</span> -f /usr/share/acpi-support/power-funcs || <span class="keyword">exit</span> 0
+
+<span class="variable-name">HEADPHONE_VOLUME</span>=$(<span class="sh-quoted-exec">cat</span> /var/local/volume)
+<span class="variable-name">HEADPHONE_STATE</span>=$(<span class="sh-quoted-exec">cat</span> /var/local/volume_state)
+
+<span class="keyword">if</span> [ <span class="string">"$HEADPHONE_STATE"</span> -lt 0 ]; <span class="keyword">then</span>
+    <span class="comment-delimiter">#</span><span class="comment">unmute
+</span>    <span class="variable-name">HEADPHONE_STATE</span>=$((HADPHONE_STATE + 2))
+    <span class="builtin">echo</span> $<span class="variable-name">HEADPHONE_STATE</span> &gt; /var/local/volume_state
+    <span class="builtin">echo</span> <span class="string">"HEADPHONE_VOLUME=$HEADPHONE_VOLUME"</span>
+    [ -x /usr/bin/amixer ] &amp;&amp; amixer sset <span class="string">'Headphone'</span> unmute &gt; /dev/null
+<span class="keyword">else</span>
+    mute (and remember current volume level)
+    <span class="variable-name">HEADPHONE_STATE</span>=$((HADPHONE_STATE - 2))
+    <span class="builtin">echo</span> $<span class="variable-name">HEADPHONE_STATE</span> &gt; /var/local/volume_state
+    <span class="builtin">echo</span> <span class="string">"HEADPHONE_VOLUME=$HEADPHONE_VOLUME"</span>
+    [ -x /usr/bin/amixer ] &amp;&amp; amixer sset <span class="string">'Headphone'</span> mute &gt; /dev/null
+<span class="keyword">fi</span>
+</pre>
+
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

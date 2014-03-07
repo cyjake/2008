@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//">
+<html>
+  <head>
+    <title>修行在个人</title>
+    <meta name="generator" content="muse.el">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="../css/style.css">
+  </head>
+  <body>
+    <div id="sitenav">
+      <ol>
+	<li><a href="./index.html">Home</a></li>
+	<li><a href="./movie.html">Little IMDB</a></li>
+	<li><a href="./tool.html">Smith</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./photo.html">Galleries</a></li>
+	<li><a href="./about.html">About</a></li>
+      </ol>
+    </div><!-- sitenav -->
+    <div id="header">
+      <h1>修行在个人</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div><!-- header -->
+    <div id="main">
+      <div id="sidebar">
+	<h3>工具配置笔记</h3>
+	<ol>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./mplayer.html">Mplayer</a></li>
+	</ol>
+	<h3>学生习作</h3>
+	<ol>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a></li>
+	</ol>
+	<h3>在外网的我的窝</h3>
+	<ol>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://xiaonei.com/getuser.do?id=227847177">
+	      校内网 - 陈养剑</a></li>
+	</ol>
+      </div><!-- sidebar -->
+      <div id="content">
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h3>介绍 debian</h3>
+<a name="anchor" id="anchor"></a>
+intro
+估计都听说过 linux, 或者听说的不是 linux, 而是 red hat 阿, ubuntu 阿之类的,
+他们都是 linux 的发行版(distribution). 所谓发行其实是这样的,
+那些个有太多空闲时间的就会玩弄计算机的宅男们花了部分时间编译了内核, 在这个基础上编译了桌面系统,
+文本编辑工具, 浏览器, 多媒体播放器等等一堆平时使用电脑需要的应用程序,
+然后他们最喜欢分享又刚好网络情况不至于像浙大这么糟, 于是把这堆东西弄到一块去搞成了安装程序,
+以前放在软盘里面, 后来因为男人帮比较流行就把软盘扒了衣服换成了光盘, 还嫌CD太小换成DVD,
+其实有隐含 cup 的意思. 所以呢可以得到这么个式子:
+
+<blockquote>
+<p class="quoted">发行版 = 内核 + 应用程序(桌面系统, blabla)</p>
+</blockquote>
+
+<p>而 debian 刚开始也是如此, 后来又加上了许多独有的东西, 制定了软件包管理机制, 注明的
+apt(advanced package tool) 程序集让你很方便地管理 debian 系统下的应用程序.
+所以上述式子的改进版是这样的</p>
+
+<blockquote>
+<p class="quoted">发行版 = 内核 + 应用程序 + 软件包管理</p>
+</blockquote>
+
+<p>像其他的发行版 gentoo, fedora 等等, 都有自己的工具以方便对系统中的软件进行管理.</p>
+
+<p>好吧...有必要把一些东西和 Windows 常识区分开来, Windows 启动流程是这样的: 系统自检,
+进度条, 登录界面...图形界面是和系统一条绳上的蚂蚱, 所以经常图形界面没反应了系统就卡住,
+而 linux 则没有图形显示, 图形界面不是它的事情, 所以它的创始人 Linus 说,
+标准的内核应该是管理计算机硬件并给软件提供它们所需要的资源的东东, 这些个发行版的图形界面,
+都交给桌面系统实现. 然后我再介绍式子:</p>
+
+<blockquote>
+<p class="quoted">桌面系统 = 底层 Xserver + 一堆乱七八糟的图形应用软件</p>
+</blockquote>
+
+<p>前面我把桌面系统归类的应用程序中来, 理由就在这里.</p>
+
+
+<h3>呛编辑器</h3>
+很久以前上面向对象程序设计课的时候老师肥老鼠要我们安装 cygwin + gcc + vim
+来学习理解编程和编译, 那个时候对 vim 很是不习惯, 只觉得是个要多按一个 i 建的写字板
+(或者叫记事本? 总之相当低级的那个...), 而且还不知道怎么退出.
+
+<p>后来上 java 课, 楼sir 上课时候用的是 editplus, 比起记事本来自然显得好很多,
+可以配置外部编译程序, 捕获程序运行结果, 树形目录结构显示, 语法高亮, 在我们这些还未习惯用
+debug 工具的人看来, 俨然就是一 IDE.</p>
+
+<p>然后再后来我装了 ubuntu, 编译安装了 emacs-snapshot-unicode-gtk, (简称emacs23...),
+开始用它写程序, 写 latex 文档(当时用这个搞定了计算机网络和操作系统实验的几次实验的报告,
+自认为效果比 word 好很多倍, 然而实验的分数不怎么令人满意), 然后用它来收校内邮箱的邮件, 听歌,
+管理文件, 下BT...好吧, 其实后面两个我没怎么搞过, 只是扯一下说明我可以这么干而已.</p>
+
+<p>学 emacs 的同时也装了 vim, 比起 emacs 它贯彻 KISS (keep it simple and stupid)
+要彻底很多, 虽然同样可以扩展, 甚至能够改变键盘模式变得和 emacs 一样,
+但是它依然是个纯粹的编辑器, 而 emacs 呢? 野心大大的. 其实也和我自己花的时间有关,
+vim 如果配置得当, 至少写 java 程序的时候能够获得 eclipse 般的文本编辑效果...
+就是那传说中的自动补全...</p>
+
+<p>然后我还要说 word, 这个学期的文档全要求用这个写, 把我恶心坏了.
+它其实做得不错, 至少我自己用来它不会经常崩溃不会把你的论文搞坏, 管理论文格式(章节标题风格什么的)
+和插入图片表格显得尤其方便, 还所见即所得, 蛮好. 然而我要鄙视它...因为经常会自作聪明,
+自作主张调整行间距, 体会了 tex 的帅气和优雅你就会觉得 word 太土鳖了.</p>
+
+<p>ps: 最近似乎有股浪潮反对接受 word 附件的电子邮件之类, 感兴趣可以去了解下, 搜
+richard stallman 就有丫的大作一篇...文字还算简单, 因为我都看得懂-___-b</p>
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- content -->
+    </div><!-- main -->  
+    <div id="footer">
+      <a href="http://www.gnu.org/">
+	<img src="../images/gerwinski-gnu-head.png"></a>
+      <p> By leto@freecity.cn 2007年07月06日</p>
+    </div><!-- footer-->
+  </body>
+</html>

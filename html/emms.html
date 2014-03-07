@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>Emacs Multimedia System - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>Emacs Multimedia System</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">What is EMMS?</a></dt>
+<dt><a href="#sec2">How far have EMMS got?</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">William Xu's EMMS setup</a></dt>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+What is EMMS?</h2>
+
+<p class="first">就像本页题目说的，EMMS 的全称是‘Emacs MultiMedia System’。顾名思义，
+可以知道它是非著名编辑工具 Emacs 的众多良莠不齐扩展包中的一员，显然这次这个是绝对好用的。
+它能拿来做什么？让我们再望文生义一下其实就明了了，多媒体系统自然是拿来娱乐大众的！
+闲话休提，老规矩先贴官方介绍。</p>
+
+<div class="pic" style="float: right;">
+  <img src="../images/emms-logo-small-dark.png" alt="image add by muse-imgtag" />
+</div><!-- pic -->
+
+<blockquote>
+<p class="quoted">
+EMMS is the Emacs Multimedia System. It tries to be a clean and small
+application to play multimedia files from Emacs using external players.
+Many of it's ideas are derived from MpthreePlayer , but it tries to be more
+general and cleaner.</p>
+<p class="quoted">The fact that EMMS is based on external players makes it powerful, because
+it supports all formats that those players support, with no effort from your
+side.</p>
+
+</blockquote>
+
+
+<h2><a name="sec2" id="sec2"></a>
+How far have EMMS got?</h2>
+
+<p class="first">在我写这篇东西的时候，debian 源里面的版本还是 2.1 ，官方的则是 3.0 于6月29日发布。
+它能做的事情已经足够多的了，下面是我‘自己’的配置（大部分来自于 kid 的 <code>50emms.el</code>，
+他的那从文件名解析标签的两个函数很好用）。</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">;; </span><span class="comment">add emms directory to load-path and import components wanted.
+</span>(add-to-list 'load-path
+             (expand-file-name <span class="string">"/emacs/packages/emms-3.0/"</span>)
+             t)
+
+(<span class="keyword">require</span> '<span class="constant">emms-playlist-mode</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-source-file</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-source-playlist</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-player-simple</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-player-mplayer</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-info</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-cache</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-playing-time</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-volume</span>)
+(<span class="keyword">require</span> '<span class="constant">emms-lyrics</span>)
+</pre>
+
+<p>其实用不着像上面那样复杂，参考 <code>emms</code> 官方的使用手册，只要如此便可以，</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">require</span> '<span class="constant">emms-setup</span>)           <span class="comment-delimiter">; </span><span class="comment">load setup script.
+</span>(emms-standard)                 <span class="comment-delimiter">; </span><span class="comment">standard setup will be okay.
+</span>
+<span class="comment-delimiter">;; </span><span class="comment">I didn't go figure what the default players truely are.
+</span><span class="comment-delimiter">;; </span><span class="comment">But the code works on my machine. These are mpg321 and mplayer.
+</span>(emms-default-players)          <span class="comment-delimiter">; </span><span class="comment">use default players.
+</span></pre>
+
+<p>这么做唯一的不好的地方只是可能会加入一些你不需要的东西，可选的有最小化加载（连播放列表的 <code>buffer</code>
+都没有好像）、标准和小白鼠式加载。不过据说其实都还很稳定，而且能尝试许多新特性，
+比如像 WMP 或者 iTunes 一样浏览你的音乐文件同时也提供了许多快速找歌的功能，按 artist、
+albumn、year 等等。可惜前提是标签能够正确解析。</p>
+
+<p>歌词显示的配置，显示效果参考截图。具体的实现方式是这样的，在 <code>mode-line</code> 上面显示播放时间和歌词，
+使用叶文彬（其实我不认识他-_-）的那个 =scroll-mode-line= 插件让歌词滚动起来就差不多了。
+可以到<a href="http://learn.tsinghua.edu.cn:8080/2005211356/emacs/EMMS.html">这里</a>看看他的 =emms= 配置以及效果，那个插件在那也有下载。</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">;; </span><span class="comment">lyrics settings, don't display on minibuffer.
+</span>(<span class="keyword">when</span> (fboundp 'emms-lyrics)
+  (emms-lyrics 1))
+(setq emms-lyrics-coding-system 'gbk
+      emms-lyrics-display-on-minibuffer nil
+      emms-lyrics-dir <span class="string">"~/music/lyrics"</span>)
+
+<span class="comment-delimiter">;; </span><span class="comment">YeWenbin's emacs extention, scroll the mode line, wrap up some space.
+</span>(<span class="keyword">require</span> '<span class="constant">scroll-mode-line-mode</span>)
+(scroll-mode-line-mode 1)
+</pre>
+
+<table class="image" width="100%">
+  <tr><td align="center"><img src="../images/emacs-emms-screenshot.png" alt="EMMS Screenshot" /></td></tr>
+  <tr><td align="center" class="image-caption">EMMS Screenshot</td></tr>
+</table>
+
+<h3><a name="sec3" id="sec3"></a>
+William Xu's EMMS setup</h3>
+
+<blockquote>
+<p class="quoted">
+emms playlist with last-played time, play-count, artist, title
+(tree-like for the same album) and various other info, and lyrics on
+the mode line. Fields in a row are (left to right): last played time,
+play-count, artist, (tracknumber, title), album, year,
+time. Basically, my configuration is focused on making full use of
+emms in a single playlist buffer.</p>
+
+</blockquote>
+
+<p>最近我跑去 EMMS 的主页上看了看有没有新东西，看到这个。<a href="http://www.gnu.org/software/emms/screenshots.html">效果图和配置</a>在主
+页上都有。基本上是拿来用就可以了，需要注意的是：</p>
+
+<ul>
+<li>cache/history 等缓存相关的东西事先最好清除一下。一般在
+~/.emacs.d/emms 目录，直接删掉好了。</li>
+<li>emms 默认用来解析音频文件标签的外部工具分别是 ogginfo 和 mp3info。</li>
+<li>歌词显示的问题，如前文所说的，不过好像只会找于文件名相同的 .lrc 文
+件，还得研究。</li>
+</ul>
+
+<table class="image" width="100%">
+  <tr><td align="center"><img src="../images/wx_emms.png" alt="emms@emacs under wmii" /></td></tr>
+  <tr><td align="center" class="image-caption">emms@emacs under wmii</td></tr>
+</table>
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

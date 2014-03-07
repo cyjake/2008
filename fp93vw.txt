@@ -1,0 +1,24 @@
+Screen Size  	19" wide
+Resolution 	1440x900(WXGA+)
+Pixel Pitch 	0.2835 mm
+Brightness 	300 cd/m2
+Contrast Ratio 	700:1
+Response Time 	5ms
+Display Area 	408.2 x 255.1 (mm)
+Display Color 	16.2 million
+Viewing Angle 	150/140(CR>=10)
+Input Signals 	DVI/D-sub
+Horizontal Frequency 	31 - 81 (KHz)
+Vertical Frequency 	50-76 (Hz)
+Video Bandwidth 	25 - 135 (MHz)
+Color Temperature 	Reddish/Normal/Bluish /Mac standard/user mode
+Power Consumption 	45W (max)
+Power Supply 	Built-in
+Features 	i-Key
+Kensington Lock
+Adjustments 	Tilt (down/Up-2/22
+Dimensions 	404.4x453x249.79 (HxWxD mm)
+Weight 	6.05kg
+Accessories (Standard) 	User manual CD
+Quick start guide
+VGA and DVI cable ( it will depend on region)

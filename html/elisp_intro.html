@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>Elisp - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>Elisp</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">foreword</a></dt>
+<dt><a href="#sec2">Note</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">Strange Names</a></dt>
+<dt><a href="#sec4">Regex in Emacs</a></dt>
+<dt><a href="#sec5">func spec</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec6">let*</a></dt>
+<dt><a href="#sec7">prog1 &amp; progn</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec8">Solution to Emacs Lisp Intro</a></dt>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+foreword</h2>
+
+<p class="first">已经消逝已久的对 lisp 的热情似乎又回来了，因为前些天摸索着居然写出了个 <code>imgtag</code> 出来，
+于是重新开始看 <code>elisp-intro</code> ，做了两个第三章末尾的作业。以后做的作业阿笔记阿什么的，都贴这里。</p>
+
+
+<h2><a name="sec2" id="sec2"></a>
+Note</h2>
+
+<h3><a name="sec3" id="sec3"></a>
+Strange Names</h3>
+
+<blockquote>
+<p class="quoted">
+The name of the cons function is not unreasonable: it is an abbreviation of the
+word `construct'. The origins of the names for car and cdr, on the other hand,
+are esoteric: car is an acronym from the phrase `Contents of the Address part
+of the Register'; and cdr (pronounced `could-er') is an acronym from the phrase
+`Contents of the Decrement part of the Register'. These phrases refer to
+specific pieces of hardware on the very early computer on which the original
+Lisp was developed. Besides being obsolete, the phrases have been completely
+irrelevant for more than 25 years to anyone thinking about Lisp. Nonetheless,
+although a few brave scholars have begun to use more reasonable names for these
+functions, the old terms are still in use. In particular, since the terms are
+used in the Emacs Lisp source code, we will use them in this introduction.</p>
+
+</blockquote>
+
+
+<h3><a name="sec4" id="sec4"></a>
+Regex in Emacs</h3>
+
+<p class="first">Two backslashes, `\\', are required before the parentheses and
+vertical bars: the first backslash quotes the following backslash in
+Emacs; and the second indicates that the following character, the
+parenthesis or the vertical bar, is special.</p>
+
+
+<h3><a name="sec5" id="sec5"></a>
+func spec</h3>
+
+<h4><a name="sec6" id="sec6"></a>
+let*</h4>
+
+<p class="first">Bind some variables locally to particular values, and then evaluate
+the remaining arguments, returning the value of the last one. <em>While
+binding the local variables, use the local values of variables bound
+earlier, if any.</em></p>
+
+
+<h4><a name="sec7" id="sec7"></a>
+prog1 &amp; progn</h4>
+
+<p class="first">- prog1 -&gt; first
+- progn -&gt; last</p>
+
+
+
+
+<h2><a name="sec8" id="sec8"></a>
+Solution to Emacs Lisp Intro</h2>
+
+<dl>
+<dt><strong>Chapter 3 - Exercise 1</strong></dt><dd>
+Write a non-interactive function that doubles the value of its argument,
+a number. Make that function interactive.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-double</span> (parameter)
+  <span class="doc">"a little function to double numbers"</span>
+  (interactive <span class="string">"p"</span>)
+  (<span class="keyword">let</span> ((number parameter)
+        )
+    (message <span class="string">"%d's doubled value is %d"</span> number (* number 2))))
+</pre>
+
+<dl>
+<dt><strong>Chapter 3 - Exercise 2</strong></dt><dd>
+Write a function that tests whether the current value of fill-column is
+greater than the argument passed to the function, and if so, prints an
+appropriate message.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-check-with-fill-column</span> (parameter)
+  <span class="doc">"compare the given number with fill-column"</span>
+  (interactive <span class="string">"p"</span>)
+  (<span class="keyword">let</span> ((number parameter)
+        )
+    (<span class="keyword">if</span> (&lt; number fill-column)
+        (message <span class="string">"compatible with current fill-column: %d"</span> fill-column)
+      (message <span class="string">"no kidding, that's far beyond what i can take."</span>))))
+</pre>
+
+<dl>
+<dt><strong>Chapter 4 - Exercise 1</strong></dt><dd>
+Write your own simplified-end-of-buffer function definition; then test
+it to see whether it works.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-simplified-end-of-buffer</span> ()
+  <span class="doc">"go to the end of current buffer."</span>
+  (interactive)
+  (push-mark (point))
+  (goto-char (point-max)))
+</pre>
+
+<dl>
+<dt><strong>Chapter 4 - Exercise 2</strong></dt><dd>
+Use if and get-buffer to write a function that prints a message telling
+you whether a buffer exists.<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup></dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-check-buffer</span> (parameter)
+  <span class="doc">"check out whether the specified buffer exists or not."</span>
+  (interactive <span class="string">"BCheck it out: "</span>)
+  (<span class="keyword">let</span> ((buf parameter))
+    (<span class="keyword">if</span> (get-buffer buf)
+        (message <span class="string">"buffer %s exists!"</span> buf)
+      (message <span class="string">"opps! buffer %s hasn't been created yet."</span> buf))
+    ))
+</pre>
+
+<dl>
+<dt><strong>Chapter 5 - Exercise 1</strong></dt><dd>
+Write an interactive function with an optional argument that tests whether
+its argument, a number, is greater or less than the value of fill-column,
+and tells you which, in a message. However, if you do not pass an argument
+to the function, use 56 as a default value.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-check-with-fill-column</span> (<span class="type">&amp;optional</span> arg)
+  <span class="doc">"Compare the argument given with the value of fill-column.
+Use 56 as a default value is the argument is omitted. "</span>
+  (interactive <span class="string">"P"</span>)
+  (<span class="keyword">let</span> ((num (or (<span class="keyword">if</span> arg
+                     <span class="comment-delimiter">;; </span><span class="comment">_if_ expression is essential, otherwise arg will
+</span>                     <span class="comment-delimiter">;; </span><span class="comment">default to 1 if not assigned.
+</span>                     (prefix-numeric-value arg))
+                 56)
+             ))
+        (<span class="keyword">if</span> (&lt; num fill-column)
+          (message <span class="string">"%d is compatible"</span> num)
+        (message <span class="string">"no kidding."</span>))))
+</pre>
+
+<p>(2008-09-11) Previous chapters are easy. Notice: the use of let is not
+necessary. See below as an example.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">check-fill-column</span> (<span class="type">&amp;optional</span> num)
+  <span class="doc">"accepts a number and compare it with fill-column"</span>
+  (interactive <span class="string">"P"</span>)
+  (or num
+      (setq num 56))
+  (<span class="keyword">if</span> (&gt; num fill-column)
+      (message <span class="string">"%d is greater than current fill-column value!"</span> num)
+    (message <span class="string">"%d is a little bit short."</span> num)))
+</pre>
+
+<dl>
+<dt><strong>Chapter 6 - Exercise 1</strong></dt><dd>
+Write a function that will display the first 60 characters of the current
+buffer, even if you have narrowed the buffer to its latter half so that the
+first line is inaccessible. Restore point, mark, and narrowing. For this
+exercise, you need to use save-restriction, widen, goto-char, point-min,
+buffer-substring, message, and other functions, a whole potpourri.<sup><a class="footref" name="fnr.2" href="#fn.2">2</a></sup></dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-first-60</span> ()
+  <span class="doc">"Return the beginning 60 characters of current buffer not regarding
+it is narrowed or not. "</span>
+  (interactive)
+  (<span class="keyword">save-restriction</span>
+    (widen)
+    (<span class="keyword">save-excursion</span>
+      (message <span class="string">"The first 60 characters of current buffer are: \n%s"</span>
+               (buffer-substring (goto-char (point-min)) 60)
+               <span class="comment-delimiter">;; </span><span class="comment">_buffer-substring_ will use current buffer as the buffer being
+</span>               <span class="comment-delimiter">;; </span><span class="comment">processed. _substring_ need providing the major string arg.
+</span>               )
+      )))
+</pre>
+
+<dl>
+<dt><strong>Chapter 7 - Exercise 1</strong></dt><dd>
+Construct a list of four birds by evaluating several expressions with cons.
+Find out what happens when you cons a list onto itself. Replace the first
+element of the list of four birds with a fish. Replace the rest of that
+list with a list of other fish.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">practise-fundamental</span> ()
+  <span class="doc">"shows the use of fundamental functions such as _cons_, _setcar_, _setcadr_. "</span>
+  (interactive)
+  (message <span class="string">"cons birds: %s. \ncons birds to itself: \n%s.
+after setcar: %s, birds: %s. \nafter setcdr: %s, \nbirds(actually fish): %s. "</span>
+           (setq birds
+                 (cons 'crow
+                       (cons 'magpie
+                             (cons 'swallow
+                                   (cons 'lark ()))))
+                 )
+           (cons birds birds)
+           (setcar birds 'shark) birds
+           (setcdr birds '(cyprinoid goldfish dorado)) birds))
+</pre>
+
+<p>(2008-09-11) Actually the printed final result won't be acurate. Emacs
+calculate the list (<code>cons</code>, <code>setcar</code>, <code>setcdr</code>, etc.) thoroughly before print
+it. function practice-fundamental does not demonstrate the process.</p>
+
+<dl>
+<dt><strong>Chapter 8 - Exercise 1</strong></dt><dd>
+Write an interactive function that searches for a string. If the
+search finds the string, leave point after it and display a message
+that says &quot;Found!&quot;. (Do not use search-forward for the name of this
+function; if you do, you will overwrite the existing version of
+search-forward that comes with Emacs. Use a name such as
+test-search instead.)</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-search-forward</span> (str)
+  <span class="doc">"search for a string and echo \"Found!\" if succeed."</span>
+  (interactive <span class="string">"sSearch: "</span>)
+  (<span class="keyword">when</span> (search-forward
+         str nil nil 1)
+    (message <span class="string">"Found!"</span>)
+    ))
+</pre>
+
+<dl>
+<dt><strong>Chapter 8 - Exercise 2</strong></dt><dd>
+Write a function that prints the third element of the kill ring in
+the echo area, if any; if the kill ring does not contain a third
+element, print an appropriate message.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-nth-kill-ring-element</span> (arg)
+  <span class="doc">"get the nth element of the kill ring. And if not provided,
+the value of n is default to 3."</span>
+  (interactive <span class="string">"p"</span>)
+  <span class="comment-delimiter">;; </span><span class="comment">If the first element is nil, as it is here, information
+</span>  <span class="comment-delimiter">;; </span><span class="comment">about error signal is not stored by another function.
+</span>  (<span class="keyword">condition-case</span> nil
+
+      <span class="comment-delimiter">;; </span><span class="comment">Tells the lisp interpreter what to do when all goes well.
+</span>      (<span class="keyword">let</span> ((depth (or arg 3))
+            )
+        (<span class="keyword">when</span> (&lt; depth (length kill-ring))
+          (message <span class="string">"%s"</span> (car (nthcdr depth kill-ring))))
+        )
+
+    <span class="comment-delimiter">;; </span><span class="comment">Tells the interpreter what to do with an error.
+</span>    (message <span class="string">"Don't go that far plz."</span>)
+    )
+  )
+</pre>
+
+<dl>
+<dt><strong>Chapter 9 - Exercise 1</strong></dt><dd>
+Set flowers to violet and buttercup. Cons two more flowers on to
+this list and set this new list to more-flowers. Set the CAR of
+flowers to a fish. What does the more-flowers list now contain?</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+    --></style><span class="comment-delimiter">;; </span><span class="comment">Press C-x C-e at the end of each line orderly.
+</span>(setq flowers '(violet buttercup))
+(setq more-flowers (cons 'lily (cons 'rose flowers)))
+(setcar flowers 'fish)
+more-flowers
+</pre>
+
+<dl>
+<dt><strong>Chapter 10 - Exercise 1</strong></dt><dd>
+Using C-h v (describe-variable), look at the value of your kill
+ring. Add several items to your kill ring; look at its value
+again. Using M-y (yank-pop), move all the way around the kill
+ring. How many items were in your kill ring? Find the value of
+kill-ring-max. Was your kill ring full, or could you have kept
+more blocks of text within it?</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-check-kill-ring-length</span> ()
+  <span class="doc">"show the maximum length of kill-ring.
+Display a message when kill-ring is full."</span>
+  (interactive)
+  (message <span class="string">"capacity: %d. current: %d. \n%s."</span>
+           kill-ring-max
+           (length kill-ring)
+           (<span class="keyword">if</span> (&lt; (length kill-ring) kill-ring-max)
+               <span class="string">"not full yet."</span>
+             <span class="string">"Ah... has been fed up already."</span>)))
+</pre>
+
+<dl>
+<dt><strong>Chapter 10 - Exercise 2</strong></dt><dd>
+Using nthcdr and car, construct a series of expressions to return
+the first, second, third, and fourth elements of a list.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-nth</span> (arg)
+  <span class="doc">"constructed in _nthcdr_ and _car_ to return the nth element of a list."</span>
+  (interactive <span class="string">"p"</span>)
+  (message <span class="string">"%s"</span> (car (nthcdr (1- arg) kill-ring))))
+</pre>
+
+<dl>
+<dt><strong>Chapter 11 - Exercise 1</strong></dt><dd>
+Write a function similar to triangle in which each row has a value
+which is the square of the row number. Use a while loop.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">triangle-square-while</span> (row-num)
+  <span class="doc">""</span>
+  (<span class="keyword">let</span> ((sum 0))
+    (<span class="keyword">while</span> (&gt; row-num 0)
+      (setq sum (+ sum (* row-num row-num)))
+      (setq row-num (1- row-num)))
+    sum))
+</pre>
+
+<dl>
+<dt><strong>Chapter 11 - Exercise 2</strong></dt><dd>
+Write a function similar to triangle that multiplies instead of
+adds the values.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">foo</span> (row-num)
+  <span class="doc">""</span>
+  (<span class="keyword">let</span> ((total 1))
+    (<span class="keyword">while</span> (&gt; row-num 0)
+      (setq total (* total row-num))
+      (setq row-num (1- row-num)))
+    total))
+</pre>
+
+<dl>
+<dt><strong>Chapter 11 - Exercise 3</strong></dt><dd>
+Rewrite these two functions recursively. Rewrite these functions using cond.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">triangle-square-recursive</span> (row-num)
+  <span class="doc">""</span>
+  (<span class="keyword">if</span> (&lt;= row-num 1)
+      1
+    (+ (* row-num row-num) (triangle-square-recursive (1- row-num)))))
+</pre>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">foo-recursive</span> (row-num)
+  <span class="doc">""</span>
+  (<span class="keyword">if</span> (&lt;= row-num 1)
+      1
+    (* row-num (foo-recursive (1- row-num)))))
+</pre>
+
+<dl>
+<dt><strong>Chapter 11 - Exercise 2</strong></dt><dd>
+Write a function for Texinfo mode that creates an index entry at
+the beginning of a paragraph for every `@dfn' within the
+paragraph. (In a Texinfo file, `@dfn' marks a definition. For more
+information, see @xref{Indicating, , Indicating Definitions,
+texinfo}.) section `Indicating' in Texinfo Manual.)</dd>
+</dl>
+
+<p>N/A</p>
+
+<dl>
+<dt><strong>Chapter 12 - Exercise 1</strong></dt><dd>
+Write a function to search for a regular expression that matches
+two or more blank lines in sequence.</dd>
+</dl>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .doc {
+        /* font-lock-doc-face */
+        color: #87cefa;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .regexp-grouping-backslash {
+        /* font-lock-regexp-grouping-backslash */
+        font-weight: bold;
+      }
+      .regexp-grouping-construct {
+        /* font-lock-regexp-grouping-construct */
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(<span class="keyword">defun</span> <span class="function-name">leto-search-blank-line</span> ()
+  <span class="doc">"Search forward for blank line"</span>
+  (interactive)
+  (push-mark)
+  (<span class="keyword">if</span> (re-search-forward <span class="string">"\n</span><span class="string"><span class="regexp-grouping-backslash">\\</span></span><span class="string"><span class="regexp-grouping-construct">(</span></span><span class="string">[ \t]*\n</span><span class="string"><span class="regexp-grouping-backslash">\\</span></span><span class="string"><span class="regexp-grouping-construct">)</span></span><span class="string">+"</span> nil t)
+      (message <span class="string">"blank line found."</span>)
+    (message <span class="string">"nah"</span>)))
+
+<span class="comment-delimiter">;;; </span><span class="comment">bound function to F11 for test efficiency.
+</span>(global-set-key (kbd <span class="string">"&lt;f11&gt;"</span>) 'leto-search-blank-line)
+</pre>
+
+<dl>
+<dt><strong>Chapter 12 - Exercise 1</strong></dt><dd>
+Write a function to search for duplicated words, such as `the
+the'. See Regexps, for information on how to write a regexp (a
+regular expression) to match a string that is composed of two
+identical halves. You can devise several regexps; some are better
+than others. The function I use is described in an appendix, along
+with several regexps. See <a href="http://www.gnu.org/software/emacs/emacs-lisp-intro/html_node/the-the.html">the-the Duplicated Words Function.</a></dd>
+</dl>
+
+<p>This is the author's key to this exercise.
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>(defun the-the ()
+  <span class="string">"Search forward for for a duplicated word."</span>
+  (interactive)
+  (message <span class="string">"Searching for for duplicated words ..."</span>)
+  (push-mark)
+  ;; This regexp is not perfect
+  ;; but is fairly good over all:
+  (if (re-search-forward
+       <span class="string">"\\b\\([^@ \n\t]+\\)[ \n\t]+\\1\\b"</span> nil 'move)
+      (message <span class="string">"Found duplicated word."</span>)
+    (message <span class="string">"End of buffer"</span>)))
+</pre></p>
+
+<blockquote>
+<p class="quoted">Chapter 13 - Exercise</p>
+</blockquote>
+
+<p>change the pattern in count-words-region function to <code>[.,;:!?]</code>.</p>
+
+<hr />
+<p class="footnote"><a class="footnum" name="fn.1" href="#fnr.1">1.</a> For using <code>parameter</code> only will be okay, the <code>let</code> form is not essential.</p>
+
+<p class="footnote"><a class="footnum" name="fn.2" href="#fnr.2">2.</a> n. 混合物, 杂曲, 混成曲, 杂集, 大杂烩</p>
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

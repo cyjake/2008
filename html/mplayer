@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>终极播放器 - leto.org</title>
+    <meta name="generator" content="muse.el" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDB</a></li>
+	<li><a href="./tool.html">Smith</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./photo.html">Galleries</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>终极播放器</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!-- Page published by Emacs Muse begins here -->
+      
+官方的介绍
+
+
+``MPlayer is a movie player which runs on many systems (see the documentation).
+It plays most MPEG/VOB, AVI, Ogg/OGM, VIVO, ASF/WMA/WMV, QT/MOV/MP4, RealMedia,
+Matroska, NUT, NuppelVideo, FLI, YUV4MPEG, FILM, RoQ, PVA files, supported by
+many native, XAnim, and Win32 DLL codecs. You can watch VideoCD, SVCD, DVD,
+3ivx, DivX 3/4/5 and even WMV movies..
+Another great feature of MPlayer is the wide range of supported output drivers.
+It works with X11, Xv, DGA, OpenGL, SVGAlib, fbdev, AAlib, DirectFB, but you
+can use GGI, SDL (and this way all their drivers), VESA (on every VESA
+compatible card, even without X11!) and some low level card-specific drivers
+(for Matrox, 3Dfx and ATI), too! Most of them support software or hardware
+scaling, so you can enjoy movies in fullscreen. MPlayer supports displaying
+through some hardware MPEG decoder boards, such as the Siemens DVB, DXR2 and
+DXR3/Hollywood+.
+MPlayer has an onscreen display (OSD) for status information, nice big
+antialiased shaded subtitles and visual feedback for keyboard controls. European
+/ISO 8859-1,2 (Hungarian, English, Czech, etc), Cyrillic and Korean fonts are
+supported along with 12 subtitle formats (MicroDVD, SubRip, OGM, SubViewer,
+Sami, VPlayer, RT, SSA, AQTitle, JACOsub, PJS and our own: MPsub). DVD subtitles
+(SPU streams, VOBsub and Closed Captions) are supported as well."
+
+
+套用韩城攻略里面梁朝伟的自我介绍台词:``简单地说就是一个字`吊!~'"
+
+似乎播放器之争很久以前就存在了, 以前么在 Windows Media Player 10 和 Real Player 10 之间
+犹豫, 现在么多出个一度高姿态然后持续摆烂的暴风影音, 和非常容易让我以为是抄袭 Mplayer 的
+KMplayer(因为 Mplayer 有两个 KDE 前端都叫做 KMplayer).
+不过我有的时候是 cli geek, 不怎么用前端.
+
+
+我所做的配置
+
+同样, debian 源里头的 mplayer 也被 debian 风格化了, 我自己没试过去编译个自己的 mplayer,
+觉得 apt-get 足够了. 修改的配置文件是自己家目录下的 .mplayer/config , 主配置文件
+/etc/mplayer/mplayer.conf 没有动, 反正平时也都是拿 debian 当单用户机器来用.
+在家目录的 .mplayer 下面还有个文件叫 gui.conf, 写在这里的配置只在启动 gmplayer
+的时候有用的, 而且配置选项与 man 出来的选项是不一样的, 要改这个配置的话最好不要手动写文件
+(不过 debian 除外, 因为我打开发现里面的选项都已经写了出来, 要用的话把注释去掉即可),
+可以在启动之后选择 preference 再做点选择就行了.
+
+
+# sub-fuzziness 的大小用来设定 mplayer 索引字幕文件的方式, 为 1 时和 Windows
+# 下那些播放器的方式一样, 文件名相同即可, 为 2 时则只要后缀是 srt 就行.
+sub-fuzziness=1
+
+# subcp 和 subfont-encoding 都是设置编码的, 前者字幕文件后者不清楚,
+subcp=cp936
+subfont-encoding=unicode
+
+# 其他选项还算清楚明了, 自己慢慢调就可以, 不写了.
+subfont-osd-scale=4
+subfont-outline=3
+subfont-text-scale=3
+subpos=98
+
+# 据说用这个 Video Output 模式 CPU 占用最少.
+vo=xv
+
+# 宽屏, 也有宽屏长宽比是 16:9 的, 相应修改吧.
+monitoraspect=16:10
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./fvwm.html">FVWM</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	  <li><a href="./mplayer.html">Mplayer</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://xiaonei.com/leto">
+	      校内网 - 陈养剑</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://www.debian.org/">
+	      <img src="../images/powered_by_debian.png" 
+		   alt="Powered by debian" /></a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://www.getfirefox.com/">
+	      <img src="../images/get_firefox_small.png"
+		   alt="Get firefox?" /></a></li>
+	  <li><a href="http://easybar.8866.org/~pluskid/">
+	      pluskid - 星黎殿</a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2007年08月13日</p>
+    </div><!-- footer-->
+  </body>
+</html>

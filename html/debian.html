@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>Debian - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>Debian</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">Where It Begins</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec2">Debian GNU/Linux</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">Why debian</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec4">Editors</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec5">Emacs</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec6">Chinese Input Method</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec7">fctix</a></dt>
+<dt><a href="#sec8">scim in ubuntu</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec9">Text file's encoding</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec10">UTF-8 编码头</a></dt>
+<dt><a href="#sec11">文件编码转换</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec12">UNIX</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec13">Commands</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec14">cp</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec15">Server</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec16">HTTP Server</a></dt>
+<dt><a href="#sec17">Database</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec18">Scripting</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec19">Shell</a></dt>
+<dt><a href="#sec20">awk and sed</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec21">misc</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec22">Unix Time 1234567890 will be Valentine's day, in China.</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec23">Software I Use</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec24">Window Manager or Desktop Environment</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec25">GNOME &amp; XFCE</a></dt>
+<dt><a href="#sec26">FVWM</a></dt>
+<dt><a href="#sec27">Sawfish</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec28">Multimedia</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec29">Audacious</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec30">MP3 file's ID3 tag</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec31">GIMP</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec32">Surfing Internet</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec33">ADSL</a></dt>
+<dt><a href="#sec34">apt's proxy setting</a></dt>
+<dt><a href="#sec35">Firefox or Iceweasel</a></dt>
+<dt><a href="#sec36">Liferea Feed Reader</a></dt>
+<dt><a href="#sec37">opera</a></dt>
+<dt><a href="#sec38">wget</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec39">Desktop</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec40">Xorg Setup</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec41">dpi</a></dt>
+<dt><a href="#sec42">mouse &amp; keyboard</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec43">Other Stuff</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec44">PC Speaker</a></dt>
+<dt><a href="#sec45">Configurings on A Laptop</a></dt>
+<dt><a href="#sec46">ACPID</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec47">File System &amp; Harddrive Disk</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec48">auto mount</a></dt>
+<dt><a href="#sec49">UUID in /etc/fstab</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec50">Misc</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec51">Something ZZ</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec52">How Microsoft conquered China</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec53">乐透</a></dt>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+Where It Begins</h2>
+
+<p class="first">家里算是木匠世家，爷爷年轻时候是远近闻名的木匠师傅，我们那儿方言叫做老师头，
+做工的时候主要负责管理层面和技术细节的。然而到了我父亲这一辈情况就变得有些不太妙了，
+因为爷爷的突然病故，薪火未能尽传，父亲学艺时间虽然比起两个年纪稍小些的叔叔要多，但是也并不长。
+所以爸爸能做的活计比爷爷要少很多，然而他做的活计照样从来没有不好的，家里的门窗橱柜床桌子，
+都比寻常人家要牢固一些，当然爸爸去做工的那些人家的木工活计我就不清楚了一,一
+爸爸少言辞，从来都没有对我念叨什么:``一定要做好&quot;之类的东西，然而他的态度我早已明了。</p>
+
+<p>或许这也是完美主意的一部分?</p>
+
+
+
+<h3><a name="sec2" id="sec2"></a>
+Debian GNU/Linux</h3>
+
+<p class="first">至今连读音都没有搞清楚，根据很久以前某人转的 98 帖子看来应该是重音在前的，而且 Linus
+筒子也这么念，不过他一贯的和事佬不言政治只顾技术的态度使得他的观点在 FSF 和 OSS
+之间基本上木有什么威信…… 闲话休提，给几个时间线。</p>
+
+<p><a class="image-link" href="http://www.debian.org">
+<img src="../images/debian_logo.png" alt="" /></a></p>
+
+<ol>
+<li>1991年的时候我估计还在江西跟着爸爸妈妈卖粉丝，当时还是大学生的 Linus 同学写出了这个玩意;</li>
+<li>1993年的时候我在上小学一年级，Ian 发布了他自己 Linux Distro，
+象征着他和他女朋友的爱情的名字: Debian;</li>
+<li>2006年暑假结束，在尝试了数个 Windows 版本，从 XP Home Edition 到 Server 2003 到
+Vista，之后，我决定尝试一下 Linux，红帽子太老，Fedora太胖而且没盘，Arch 当时没听过，
+Gentoo 更加不晓得，于是安装了当时最流行也是时下最流行的发行版 &mdash; Ubuntu GNU/Linux。</li>
+<li>2006年尾，在当了半年 Ubuntu 小白鼠之后我终于决定安装 Ubuntu 的爸爸 Debian……</li>
+</ol>
+
+<p>结果它很好用。</p>
+
+
+<h4><a name="sec3" id="sec3"></a>
+Why debian</h4>
+
+<p><a class="image-link" href="http://www.debian.org">
+<img src="../images/debian.png" alt="" /></a></p>
+
+<p>一般看到这种标题的下文便是很多横向的比较，例如 debian 比起别的发行版如何如何什么的。
+然而我天性八卦，因此此标题重在八这名字的来由。</p>
+
+<blockquote>
+<p class="quoted">
+1.7 How does one pronounce Debian and what does this word mean?</p>
+<p class="quoted"> The project name is pronounced Deb'-ee-en，with a short e in Deb，
+and emphasis on the first syllable.  <em>This word is a contraction of the names of
+Debra and Ian Murdock，who founded the project.</em> (Dictionaries seem to offer
+some ambiguity in the pronunciation of Ian (!)，but Ian prefers ee'-en.)</p>
+
+</blockquote>
+注意重点部分，Ian 是 debian 项目的建立者，那么另一半 Debra 是何许人也? 正是 Ian 的另一半,
+他建立这项目的时候还是大学生，Debra 则是他女朋友，据说现在已经终于上本垒，结婚了，够八吧?
+
+<p>那么，为什么要选择 debian 呢? 我并没有尝试过很多发行版，入门靠的是 ubuntu，半年之后就改换了
+debian，用到现在。我对两者做个比较好了: 首先，ubuntu 继承了 debian 的大部分有点，
+比如系统的包管理机制，源的概念，亲爱的 <code>apt-get</code> ，在这方面两者没什么差别，
+而比起其他发行版来说算是优势(特别是对我这样的不喜欢编译软件的懒人);
+然后，ubuntu 的分支类别更加细致，默认使用 KDE 桌面系统的有 kubuntu，默认 GNOME 的 ubuntu,
+默认 xfce 的 xubuntu，还有针对教学使用的 edubuntu 之类的，细致的好处似乎是在于选择更多，
+事实上是更加狭窄，因为 ubuntu 的发布周期是定死的，稳定版或者叫长期支持版通常是隔几个周期，
+还稍微好一点，但是每隔六个月发布出来不稳定版实在是太不稳定，``躁动的蜥蜴&quot;什么的，我试装过一个，
+改变不多，软件新一点，而已。同时，分支太细的问题显现出来，它的不同桌面系统共存做的远没有
+debian 优秀。最后，ubuntu 是个入门的好选择，因为它并不像 debian 那样追求 100% 的自由开放，
+所以源里面会有很多 debian 官方源没有的东西，比如 firefox，w32codecs 和中文字体什么的，
+debian 用 firefox 的开源部分构建了个替代叫做 iceweasel，我一直在用，还不错。</p>
+
+<p>插一句: 在配置网站伺服软件的时候我接触了很多 debian 风格的配置方式，和软件官方不太一样，
+如果你使用习惯了的话，应该会觉得这样显得更加清楚易懂。不过如果你不习惯，这风格未免太过冗余，
+算是萝卜白菜各有所爱吧。</p>
+
+
+
+
+
+<h2><a name="sec4" id="sec4"></a>
+Editors</h2>
+
+
+<h3><a name="sec5" id="sec5"></a>
+Emacs</h3>
+
+<p class="first">毫不夸张的说这是我用过最神奇的工具，一年前这个时候我只会用 vim 打开文本文件然后按`i'，
+它的剪切粘贴功能我都是依赖菜单完成的，那个时候还抱怨&mdash;唉，不能 C-c，C-v 真不习惯。
+后来就安装了安装了 emacs，装的第一个版本是六年前就是正式版的 21，虽然还是不能按老习惯复制粘贴，
+但是省却了按`i'，让我们姑且称这个为一个进步。</p>
+
+<p><a class="image-link" href="emacs.html">
+<img src="../images/gnubanner.png" alt="" /></a></p>
+
+<p>后来开始看很多文章，看 emacs 自带的练习手册，其实刚开始和当初 vim 的情形差不多，
+知道是知道命令的，真要用时又都忘记了，说到底还是用得太少，毕竟人懒，很少写程序的。
+不过自从知道这神奇工具还能玩别的花样之后就学得飞快了，当然这算后话。
+了解命令之后开始涉猎很多乱七八糟的东西，包括 latex，apache，linux 系统配置等，
+用得渐渐多了起来。然后开始耍宝，装很多 elisp 包，最拉轰的 emms，emacs-w3m，mew，
+auctex 等等。用的最多的，却是现在这个 muse，赐予人灵感但是暂时没光顾我的缪斯女神。<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup></p>
+
+<p>所以很多人说已经不能用工具来形容他，在他们看来这东西更像是一个强大的系统。还有它不能做的事情么?
+没关系，你自己加上就好了嘛~ 当然决定这么做之前最好先看看是否有人这么做过了。</p>
+
+<h4><a name="sec6" id="sec6"></a>
+Chinese Input Method</h4>
+
+<h5><a name="sec7" id="sec7"></a>
+fctix</h5>
+
+<p>中文输入法我前面已经提到了我用 fcitx，小企鹅输入法，因为scim和一些非QT
+软件冲突比较多，(我不知道具体是不是这样，冲突是自己也有体会的)，因此把
+默认安装的 scim 删删掉了.如果你和我一样喜欢英文 locale，(关于 locale
+<a href="http://hi.baidu.com/laona/blog/item/c7ee79319874b919ebc4af2b.html">有篇比较翔实的文章</a>介绍了一下，我也是看了之后才发现自己的 LC_CTYPE 写错
+掉了一，一b)，那么在 apt-get 装好 fcitx 之后它是不会启动的，你还需要在
+<blockquote>
+<p class="quoted">/etc/X11/Xsession.d/ 下面建立一个 75xinput 或者 95xinput 之类的文件，我不明
+白那个数字有什么区别...似乎效果都一样一，一b然后在里面填上:
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .variable-name {
+/* font-lock-variable-name-face */
+color: #40e0d0;
+font-weight: bold;
+}
+--></style><span class="variable-name">XMODIFIERS</span>=@im=fcitx export
+<span class="variable-name">GTK_IM_MODULE</span>=fcitx
+<span class="variable-name">QT_IM_MODULE</span>=fcitx
+fcitx
+</pre>
+这个时候可能还是不能 C-SPACE 激活小企鹅， 那么就是 LC_TYPE 变量没有设
+置好， 在 .bashrc (官方的说法， 不过这样只能针对当前用户)或者在
+/etc/environment 里面写上
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .string {
+/* font-lock-string-face */
+color: #87cefa;
+}
+.variable-name {
+/* font-lock-variable-name-face */
+color: #40e0d0;
+font-weight: bold;
+}
+--></style><span class="variable-name">LC_CTYPE</span>=<span class="string">"zh_CN.UTF-8"</span></pre>
+即可</p>
+</blockquote>
+
+<p>小企鹅的设置文件在家目录的.fcitx/下， 那个config文件就是. 不过ms是GBK编
+码的， 因此还需要一个支持GBK编码的文本编辑器， 英文locale的gedit似乎不支
+持， (反正我的不支持)， 可以先iconv之后看看每项是什么再对照着改. 或者可
+以装个gvim或者emacs-snapshot-unicode， 我写完这篇文章之后就准备编译安装
+去了~ Wish me good luck!</p>
+
+
+<h5><a name="sec8" id="sec8"></a>
+scim in ubuntu</h5>
+
+<p>有的时候 SCIM 自动切换会失败，造成以下问题：</p>
+
+<ul>
+<li>Nautilus 里头不能重命名文件。</li>
+<li>切换窗口到 Emacs 和 Terminal 等的时候必须点下鼠标才能输入。
+对 <code>/etc/X11/xinit/xinput.d/scim</code> 作以下改动即可：</li>
+</ul>
+
+<pre class="example">
+#
+# Use &quot;X input Method&quot; for all applications
+#
+# Per Ming's Documentation in SCIM, XIM Input Method is activated
+# not only for old X-applications but also for GTK and QT appplication.
+#
+# If a user wish to use, GTK Input Method, (s)he can right-click input
+# area and select &quot;Input Methods&quot; and change from &quot;X input Method&quot; to
+# &quot;SCIM Input Method&quot;.
+#
+
+XIM=scim
+XIM_PROGRAM=/usr/bin/scim
+XIM_ARGS=&quot;-d&quot;
+GTK_IM_MODULE=scim &lt;---改成scim不是xim...
+QT_IM_MODULE=scim &lt;---改成scim不是xim...
+DEPENDS=&quot;scim,scim-anthy|scim-canna|scim-chewing|scim-pinyin|scim-hangle|scim-pr
+ime|scim-skk|scim-tables-additional|scim-m17n|scim-uim|scim-tables-ja|scim-table
+s-ko|scim-tables-zh&quot;
+</pre>
+
+
+
+
+<h3><a name="sec9" id="sec9"></a>
+Text file's encoding</h3>
+
+<h4><a name="sec10" id="sec10"></a>
+UTF-8 编码头</h4>
+
+<p class="first">这个 wiki 就是一个例子，有些页面在 Windows 下无论用什么浏览器浏览可能
+都是空白。并不是因为 HTML 标签错误什么的，其实是因为“UTF-8 编码需要一
+个头”<sup><a class="footref" name="fnr.3" href="#fn.3">3</a></sup>。只要用 notepad.exe 转存一下就可以了，不用转换编码，对原先的
+使用也不会影响（多了三个字节）。</p>
+
+
+<h4><a name="sec11" id="sec11"></a>
+文件编码转换</h4>
+
+<ul>
+<li>内容：iconv</li>
+<li>文件名：convmv</li>
+</ul>
+
+
+
+
+<h2><a name="sec12" id="sec12"></a>
+UNIX</h2>
+
+<h3><a name="sec13" id="sec13"></a>
+Commands</h3>
+
+<h4><a name="sec14" id="sec14"></a>
+cp</h4>
+
+<p class="first">也是 pluskid 的帖子</p>
+
+<p>18. ［原创］拷贝一个目录下的所有文件到另外一个目录</p>
+
+<p>有时候我们会用到copy一个目录下的所有文件到另外一个目录，包括子目录，隐藏文件，链
+接等，然而这个任务并不是很简单。
+比方说，我们要把foo目录下的所有文件拷贝到bar目录下去。直接把foo移动为bar显然不
+是我们要的。那就用cp吧：</p>
+
+<pre class="example">
+$ cp -r foo/* bar/
+</pre>
+这样的话，链接会被寻找到，并拷贝其内容，如果我们想保持和原来目录一样，链接依然是链
+接，那么可以添加-d选项：
+
+<pre class="example">
+$ cp -r -d foo/* bar/
+</pre>
+可是这样还有一个不足，就是“*”不能匹配“.”文件（比如.Xdefaults, .emacs），但
+是又不能这样：
+
+<pre class="example">
+$ cp -r -d foo/.* bar/
+</pre>
+注意！“.*”将会匹配“..”，就是连它的父目录也一起拷贝了！这样不行，只有分工了：
+
+<pre class="example">
+$ cp -r -d foo/* bar/
+$ cp -r -d foo/.[!.]* bar/
+</pre>
+“.[!.]*”告诉bash匹配以“.”开头但是第二个字母不是“.”的文件。但是万一你有一个文
+件叫做“..baz”，那不是又不能匹配了？真是麻烦呀！其实，要匹配foo目录下的所有文件
+也很容易，只要“cp -r foo”，cp就会去读取foo里面的所有文件了，不管是否是“.”开
+头的，但是：
+
+<pre class="example">
+$ cp -r -d foo bar/
+</pre>
+并不是我们要的，我们需要的是把foo下的所有文件拷贝到bar目录下，而不是把foo拷贝到
+bar目录下，难道就没有办法了吗？NO！记住！每个目录里面有一个指向自身的索引项“.”！
+那就拷贝“.”吧！
+
+<pre class="example">
+$ cp -r -d foo/. bar/
+</pre>
+这下好了！其实，也可以用tar来实现拷贝！用tar？这正是Linux的迷人之处！
+
+<pre class="example">
+$ tar cf - -C foo . | tar xvfp - -C bar
+</pre>
+试一下！其中“p”选项告诉tar保持原来文件的权限，当然，cp中的“a”选项（即dpR的结合）
+也能实现同样的功能，而且cp中的“&mdash;preserve”选项可以选择属性列表，有更大的灵活性！
+
+
+
+<h3><a name="sec15" id="sec15"></a>
+Server</h3>
+
+<h4><a name="sec16" id="sec16"></a>
+HTTP Server</h4>
+
+<p class="first">原先应该可以说是一党独大的局面，LAMP 模式也确实非常成熟实用了，但是因
+为本人内心潜在的闷骚需要，我开始使用 lighty，然而在百度 lighty 的时候
+我又发现了一个新兴的服务器 <a href="http://nginx.net/">NGINX(engine x)</a>。不过还没开始尝试，前两者的
+使用笔记记了一些，放在 <a href="lighty.html">这里</a> 吧。</p>
+
+
+<h4><a name="sec17" id="sec17"></a>
+Database</h4>
+
+<p class="first">最早知道最早听说最早使用最早入门的自然是 MySQL，那时候老师使用的例子是
+Oracle，但是丫真的太大太慢了。小而灵再次占据上风。最近对 BSD 兴趣很大，所
+以前不久试用过 FreeBSD 之后又装了 PostgreSQL，也记了一些东西，放在 <a href="mysql.html">这里</a>。</p>
+
+
+
+<h3><a name="sec18" id="sec18"></a>
+Scripting</h3>
+
+<p class="first">这部分的安排比较尴尬，放在计算机语言部分觉得太小了，放到这里又觉得奇
+怪，无奈将就吧。至于为何不将这部分也丢到 Debian 那里面，是因为其实在看
+得书都未必是仅限于 Linux 的，一下许多东西的引用层面都很广，在其他
+Linux 的发行版、其他 UNIX 的克隆、版本中都能够引用。给自己看的东西都要
+解释，我真是没救了……</p>
+
+<h4><a name="sec19" id="sec19"></a>
+Shell</h4>
+
+<p class="first">组织上的混乱再次体现，这里给出的 <a href="shell.html">链接页面</a> 将会有各种我使用过的 X 下终端模拟
+器（感受、记录什么的），需要记录的方便以后查询的命令记录，等等。</p>
+
+
+
+<h4><a name="sec20" id="sec20"></a>
+awk and sed</h4>
+
+
+
+
+<h3><a name="sec21" id="sec21"></a>
+misc</h3>
+
+<h4><a name="sec22" id="sec22"></a>
+Unix Time 1234567890 will be Valentine's day, in China.</h4>
+
+<pre class="example">
+dave@tomservo:~$ perl -e 'print scalar localtime(1234567890),&quot;\n&quot;;'
+Fri Feb 13 18:31:30 2009
+dave@tomservo:~$ perl -e 'print ~~ localtime(1234567890),&quot;\n&quot;'
+Fri Feb 13 18:31:30 2009
+dave@tomservo:~$ perl -e 'print localtime(1234567890) .&quot;\n&quot;;'
+Fri Feb 13 18:31:30 2009
+dave@tomservo:~$ `watch date +&quot;%s&quot;`
+
+dave@tomservo:~$ perl -le 'print ~~localtime 1234567890'
+Fri Feb 13 18:31:30 2009
+dave@tomservo:~$ date -d @1234567890
+Fri Feb 13 18:31:30 EST 2009
+</pre>
+<code>Sat Feb 14 07:31:30 2009</code>
+
+
+
+
+<h2><a name="sec23" id="sec23"></a>
+Software I Use</h2>
+
+<h3><a name="sec24" id="sec24"></a>
+Window Manager or Desktop Environment</h3>
+
+<h4><a name="sec25" id="sec25"></a>
+GNOME &amp; XFCE</h4>
+
+<p class="first">关于 GNOME 的配置等等，其实没有多少好说明，大部分都浅显易懂，初学者习
+惯了之后鼠标点点基本上也什么都会做了。全称 GNU Object Model
+Environment，今年是第十年了，在我写下这些话的时候正在用 2.20，它的最新
+版。有些找不到的配置可以在 gconf-editor 里面找到，比如：</p>
+
+<ol>
+<li>修改 Metacity 的按钮布局，<code>app -&gt; metacity -&gt; general</code></li>
+<li>修改桌面图标的显示与否，<code>app -&gt; nautilus -&gt; desktop</code>。
+GNOME 的桌面由 nautilus 提供，不像 XFCE。</li>
+<li>移动硬盘的挂载选项，<code>system -&gt; storage -&gt; volume</code>。在你
+设置了移动硬盘的挂载选项之后才会有，我就是因为设置错了才巴巴地到处
+去纠错去。</li>
+</ol>
+
+<p>所以，如果有 GNOME 下原生软件找不到地方配置，试试去这里找找看吧。</p>
+
+
+
+<h4><a name="sec26" id="sec26"></a>
+FVWM</h4>
+
+<p class="first">用它的原因比较莫名奇妙，思来想去估计也就剩装帅而已，而且贪多不厌，觉得用 emacs 又用 sawfish
+容易绑在一条船上，于是选择了这个。最早看到它是在王垠的主页上面，当时觉得很神奇的东西，
+支持鼠标手势的窗口管理器诶，原来在 Windows 下面根本不会想到的东西。
+无怪乎他说习惯了叉屁思维的人意识不到 GNU/Linux 的好，我觉得我也很有要拓宽思路的必要。</p>
+
+<p><a class="image-link" href="fvwm.html">
+<img src="../images/fvwm-logo-small.png" alt="" /></a></p>
+
+<p>目前的进展是这样的，复制粘贴了那篇入门文章之后自己稍加修改了一番使其看起来比较合我的要求，
+学得比较盲目，不晓得怎么弄会比较快一点，manual 有点夸张，被吓到了。</p>
+
+
+
+<h4><a name="sec27" id="sec27"></a>
+Sawfish</h4>
+
+
+
+<h3><a name="sec28" id="sec28"></a>
+Multimedia</h3>
+
+
+<h4><a name="sec29" id="sec29"></a>
+Audacious</h4>
+
+<p class="first">从最早的 XMMS 到 Beep Media Player 再到现在的 Audacious，这款软件确实
+越做越好了，起先是 GTK1 程序，连 Xfts 都用不了，现在列表乱码都解决鸟，
+还有显示歌词的插件，虽然简陋了一些同时也因为 <a href="emacs.html">EMMS</a> 的缘故我没再用这插件。</p>
+
+<ul>
+<li>播放列表乱码解决：<code>Preference -&gt; Playlist -&gt; Fallback
+charactor encodings:</code> 填上 gb2312。</li>
+<li>歌词秀插件：Gnome-lyric。文件的名字叫做 glyric-audacious.so 在
+Linux 公社软件下载区应该找的到。</li>
+</ul>
+
+
+<h5><a name="sec30" id="sec30"></a>
+MP3 file's ID3 tag</h5>
+
+<p>以前有过一个完整的命令，使用 find 和下面这个，忘记在98上哪个地方了。百
+度找到<a href="http://hi.baidu.com/cztchoice/blog/item/a48e3dcf9857f238f9dc612d.html">这个帖子</a>，差不多能用，熟悉一下 find，整个世界就能清静了。顺便提
+一下，这个 python-mutagen 包的作者是 emfox。</p>
+
+<blockquote>
+<p class="quoted">
+先安装 python-mutagen包，执行
+$sudo apt-get install python-mutagen
+然后,
+$mid3iconv -e GBK <em>.mp3
+这个默认将其他编码转换为utf-8
+另外还包含$mid3v2标签修改工具
+mid3v2不加参数是显示歌曲id3信息，其他参数见&mdash;help
+这个我试过成功了</p>
+<p class="quoted">至于文件的编码，我是这么干的：先用firefox打开，再复制到gedit下就得到系
+统标准的编码了，哈哈</p>
+
+</blockquote>
+</em>** Mplayer
+在任何平台下我都喜欢用它~ 它和 emacs 同样神奇。比起 Windows 那一堆堆繁重的编码解码器，
+mplayer 显得仁慈得多; 比起其他播放器对资源的占用率，mplayer 显得仁慈得多。
+或许是将近一年的 Linux 使用，我变得厌恶图形配置界面，如果配置界面比较简介，
+我会对这软件产生不耐烦的感觉，太傻缺了阿，这都不能配置；如果配置界面比较繁杂，
+我同样会对这软件产生不耐烦的感觉，天啊，我真的能够搞清楚它们都有什么功能吗?
+而且这速度也太慢了吧? 好吧，现在我成了 geeks 的一员。
+
+<p><a class="image-link" href="mplayer.html">
+<img src="../images/mplayer.png" alt="" /></a></p>
+
+<p>我做的主要配置其实简单，调整了屏幕长宽比(我的是16:10)，修改了 `vo'(video output)选项，
+改成了更好用的 `xv'，然后就是字幕现实的问题。因为 source tag 还没搞定，
+配置文件暂时就不贴上来了，见谅。</p>
+
+
+
+
+<h4><a name="sec31" id="sec31"></a>
+GIMP</h4>
+
+<p class="first">因为喜欢动漫，闲暇时也会画上几笔。不可避免地就要用些图片处理工具来做点
+东西，处理线稿阿什么的，收集了一些教程，都放在<a href="gimp.html">这里</a>。</p>
+
+
+
+<h3><a name="sec32" id="sec32"></a>
+Surfing Internet</h3>
+
+<h4><a name="sec33" id="sec33"></a>
+ADSL</h4>
+
+<p class="first">前些日子身体不舒服于是回家休养，恰好小姨在小城瑞安买了套房子乔迁新居，
+于是缠着她磨了台电脑并装了宽带，说是给她用，实际上嘛…确实是给她用的。
+电脑的主板说要晚些日子才能到，于是只能先用我自己的老本本上上网玩玩，还
+好这次我还留着 Windows。</p>
+
+<p>然而跑到 debian 下却怎么也搞不定，我先是跑去 Linux 公社那里看了看办法，说
+是只要下两个包就行，PPPoE 和 PPPoE Conf，如此比较轻松。于是照办着去
+debian.org 搜这俩包，再千辛万苦转到移动硬盘上，然后转到 debian，然后挂
+系统，然后装之，结果问题随之而来，万恶的依赖阿依赖。于是便搁置了一两天。
+后来确实无聊，又按 debian.org 上列出的依赖的东东把相应的包都下了来，大
+致上是这么几个（自然，那些 libc 之类的就不必再下了）：</p>
+
+<ul>
+<li>libpcap0.8 &lt;- ppp</li>
+<li>ppp &lt;- pppoe</li>
+<li>modconf &lt;- pppoeconf</li>
+</ul>
+
+<p>安装完毕之后因为没有别的电脑可以上网去查文档，我有懒得去找文档再保存为
+HTML 之类的，于是就自己慢慢 man。先试了 ppp-setup，设置完毕之后无果；
+又试了 pppoeconf，设置完毕并叫它启动依然无果。于是再搁置。</p>
+
+<p>今天中午得知主板又被推迟之后就又开始摸索这个，原来仅仅是因为默认网卡的
+设置不对，它居然先连我在学校的 IP 再连 DNS，真不知道它怎么想的。总之，
+现在是莫名其妙的搞定了！哈哈。</p>
+
+<p>(2008-1-13) 今天不得已需要重新配置 Ubuntu 的 ADSL 连接，回顾出一些东西
+来：</p>
+
+<ul>
+<li>执行如下命令，看着指示填入东西，填完这个基本上就没问题了，以前自己添加过局域网路由的记得去掉或者想办法调整。</li>
+</ul>
+
+<pre class="example">
+# pppoeconf
+</pre>
+
+<ul>
+<li>上述命令执行完毕之后的提示，手动连接或断开网络：</li>
+</ul>
+
+<pre class="example">
+# pon dsl-provider
+# poff
+# ifconfig ppp0 ## Check out netsate
+</pre>
+
+
+<h4><a name="sec34" id="sec34"></a>
+apt's proxy setting</h4>
+
+<ol>
+<li>临时用用：</li>
+</ol>
+
+<pre class="example">
+# export http_proxy=&quot;http://user:password@url:port&quot;
+</pre>
+
+<ol>
+<li>长期的，在你的 /etc/apt/apt.conf 文件里面输入：</li>
+</ol>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="variable-name">Acquire</span>::http::Proxy <span class="string">"http://user:password@url:port"</span>;;;</pre>
+
+
+<h4><a name="sec35" id="sec35"></a>
+Firefox or Iceweasel</h4>
+
+<p class="first">同样在任何平台下我都喜欢用，因为它拥有的一堆堆乱七八糟的插件，和只要你高兴你也能写一个的态度。
+其实大部分时间我用的都是裸狐狸，因为这就足够了。以后可能会写些插件，不确定，先占坑吧。</p>
+
+<p><a class="image-link" href="http://www.getfirefox.net/">
+<img src="../images/get_firefox.png" alt="" /></a></p>
+
+<p>补充一个可以算彩蛋的东西：在地址栏输入 about:mozilla 可以看到 mozilla 宣言，
+里面的章节号并非实际的章节而是相应的发行日期，同时并没有实际上的 mozilla 宣言存在。
+而里面的影射应该是非常清楚明了的，有篇文章专门讲这个，感兴趣自己百度之吧。再补充个，
+有个网站叫 eastereggs.com 或者 estereggs.org 专门搜集彩蛋的，各行各业都有，
+从音乐电影到电脑软件，只是有些提交的所谓彩蛋水分太多，比如在 firefox 地址栏输入 about:chrome
+会在 firefox 里面再开个窗口，事实上这是 firefox 拿来方便给写插件的 hackers 调试的……
+上面有评论说：‘This is freeking...’只能说洋人也有火星的时候。</p>
+
+
+<h4><a name="sec36" id="sec36"></a>
+Liferea Feed Reader</h4>
+
+
+<h4><a name="sec37" id="sec37"></a>
+opera</h4>
+
+<blockquote>
+<p class="quoted">
+- 以root 权限打开opera 启动脚本文件，进入/usr/bin/opera，在开头添加：代码：export QT_IM_MODULE=XIM
+- Shortcut 里头把 Space + Ctrl 跳转到 Home 的绑定去掉。</p>
+
+</blockquote>
+
+
+<h4><a name="sec38" id="sec38"></a>
+wget</h4>
+
+<p class="first">抓网站：</p>
+
+<pre class="example">
+wget -r -p -np -k -nc http://
+</pre>
+参考自<a href="http://learn.tsinghua.edu.cn/homepage/015450/index.html">王垠的个人主页</a>，我加了个 -nc，no clobbing，如果本地已经有了就不
+要重复下载了。
+
+
+
+
+<h2><a name="sec39" id="sec39"></a>
+Desktop</h2>
+
+<h3><a name="sec40" id="sec40"></a>
+Xorg Setup</h3>
+
+<h4><a name="sec41" id="sec41"></a>
+dpi</h4>
+
+<p class="first">以前就碰过这样的问题，就是 GDM 和一些程序比如支持 xft 的 Emacs 23 的字
+突然变得很小，但是 GNOME 的字没什么变化，这是因为 GNOME 无视 Xorg 的字
+体大小自顾自地用自己的，给 xorg 设置合适的 dpi 很重要，视觉、对硬件等
+等，有两篇文章可以看：</p>
+
+<ul>
+<li><a href="http://linux-blog.org/index.php?/archives/227-KDE-and-Xorg&#65292;-Fonts-and-DPI.html">KDE &amp; Xorg， Fonts and dpi</a></li>
+<li><a href="http://gentoo-wiki.com/HOWTO_Xorg_and_Fonts">Gentoo HOWTO Xorg and Fonts</a></li>
+</ul>
+
+<p>我的设置如下：</p>
+
+<pre class="example">
+	DisplaySize	381	238	# 1440x900 96 dpi
+</pre>
+
+
+<h4><a name="sec42" id="sec42"></a>
+mouse &amp; keyboard</h4>
+
+<p class="first">用的是微软红光鲨，前进后退键自然不能让它荒废掉，找到 input device 中鼠标
+的部分，然后在 Option  &quot;Protocol&quot;  &quot;ExplorerPS/2&quot; 后面加入：
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="variable-name">Option</span>    <span class="string">"Buttons"</span> <span class="string">"7"</span>
+<span class="variable-name">Option</span>    <span class="string">"ButtonMapping"</span> <span class="string">"1 2 3 6 7"</span>
+</pre>
+并将 Option    &quot;Emulate3Buttons&quot; 由 &quot;true&quot; 改为 &quot;false&quot;。</p>
+
+<p>具体可以看 <a href="http://ubuntuforums.org/showthread.php?t=184644">这里</a>。</p>
+
+
+
+<h3><a name="sec43" id="sec43"></a>
+Other Stuff</h3>
+
+<h4><a name="sec44" id="sec44"></a>
+PC Speaker</h4>
+
+<ul>
+<li>要关闭系统的蜂鸣声，可以执行以下命令：</li>
+</ul>
+
+<pre class="example">
+rmmod pcspkr
+</pre>
+
+<ul>
+<li>这个命令可以打开蜂鸣：</li>
+</ul>
+
+<pre class="example">
+modprobe pcspkr
+</pre>
+
+<p>更多信息可以参加 <a href="http://gentoo-wiki.com/TIP_NoBeep">http://gentoo-wiki.com/TIP_NoBeep</a> 。</p>
+
+
+<h4><a name="sec45" id="sec45"></a>
+Configurings on A Laptop</h4>
+
+<p class="first">在笔记本上的配置 <a href="http://www.cc98.org/dispbbs.asp?boardID=212&amp;ID=1377170&amp;replyID=25805152">Superekcah</a> 写过一片很精彩的文章，包括 CPU 频率步进、
+ACPI、电源管理等等，我参考了很多他写的东西，这里主要记录一些自己电脑上
+的配置等等。<a href="../lspci.txt">我的硬件信息</a></p>
+
+
+
+<h4><a name="sec46" id="sec46"></a>
+ACPID</h4>
+
+<p class="first">顾名思义，就是 Advanced Configuration and Power Interface Daemon。相关
+信息了解程度其实一般，曾经写了写东西，记录在 <a href="acpid.html">这里</a>，备录吧。</p>
+
+
+
+
+<h3><a name="sec47" id="sec47"></a>
+File System &amp; Harddrive Disk</h3>
+
+<h4><a name="sec48" id="sec48"></a>
+auto mount</h4>
+
+
+<h4><a name="sec49" id="sec49"></a>
+UUID in /etc/fstab</h4>
+
+<p class="first">前些阵子在 Windows 下面把一个 FAT32 的分区转成了 <a href="windows.html">NTFS</a>，大概这也使得这
+块分区的 UUID(Universally Unique Identifier) 改变了。因此修改
+/etc/fstab 如下（应该 diff 的，那样比较清楚）：
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter"># </span><span class="comment">/etc/fstab: static file system information.
+</span><span class="comment-delimiter">#</span><span class="comment">
+</span><span class="comment-delimiter"># </span><span class="comment">&lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
+</span><span class="comment-delimiter"># </span><span class="comment">/dev/sda5
+</span><span class="variable-name">UUID</span>=C6DCF59DDCF587C7 /media/exchange ntfs      defaults,utf8,umask=007,gid=46 0       1
+</pre>
+获取分区 UUID 的方法：</p>
+
+<pre class="example">
+# sudo vol_id -u /dev/sda5
+# ls -l /dev/disk/by-uuid
+# tune2fs -l /dev/sdc2
+</pre>
+
+
+
+
+<h2><a name="sec50" id="sec50"></a>
+Misc</h2>
+
+
+<h3><a name="sec51" id="sec51"></a>
+Something ZZ</h3>
+
+<h4><a name="sec52" id="sec52"></a>
+How Microsoft conquered China</h4>
+
+<p class="first">正在做的 SRTP 与可信计算有关，这东西也是我们的盖茨兄弟与其他在计算机行
+业中的垄断公司提出来的，它的好处很明显，在软件保证安全之外提供了另外一
+种方式，硬件保证。然后缺点也是明显，加上 RMS 的文章，可信计算 (TC，
+Trusted Computing) 在很多
+人，包括我眼里成了不可信计算<sup><a class="footref" name="fnr.2" href="#fn.2">2</a></sup> (TC， Treacherous Computing)。坊间有传，这
+下微软终于找到让中国人付钱的办法了。不管怎样，先看了 <a href="blah.html">这篇文章</a> 再说吧……</p>
+
+
+
+<h3><a name="sec53" id="sec53"></a>
+乐透</h3>
+
+<p class="first">就是 <em>leto</em>，写在校内网个人主页上的 linux，debian 相关入门介绍文章，不知道怎么起标题比较好，
+所以随便这么定了个，有点 James Gosling 看到橡树说橡树看到咖啡豆说咖啡豆的意思，哈哈。
+因为总觉得以后会不再上校内网了，所以每次写东西都会在这里先写着，再贴到那里去。
+重要的原因是那里的日志是全文显示的，我怕一次太长一，一b</p>
+
+<ol>
+<li><a href="intro.html#debian">介绍 debian</a></li>
+<li><a href="intro.html#editor">呛编辑器</a></li>
+<li><a href="intro.html#emacs">我爱 emacs</a></li>
+</ol>
+
+<hr />
+<p class="footnote"><a class="footnum" name="fn.1" href="#fnr.1">1.</a>  页面下方有链接的，详细情况自己点去看看，我是指工具不是说女神一，一
+<p class="footnote"><a class="footnum" name="fn.2" href="#fnr.2">2.</a>  For further reading:
+<a href="http://www.gnu.org/philosophy/can-you-trust.html">Can You Trust Your Computer?</a> by Richard Stallman. &amp; <a href="http://www.cl.cam.ac.uk/~rja14/tcpa-faq.html">Trusted Computing FAQ</a></p>
+
+<p class="footnote"><a class="footnum" name="fn.3" href="#fnr.3">3.</a>  <a href="http://www.cc98.org/dispbbs.asp?BoardID=212&amp;id=1310148&amp;page=&amp;replyID=1310148&amp;star=3044">quark 原文如此</a></p>
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

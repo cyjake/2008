@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>FVWM - leto.org</title>
+    <meta name="generator" content="muse.el" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDB</a></li>
+	<li><a href="./tool.html">Smith</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./photo.html">Galleries</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>FVWM</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!-- Page published by Emacs Muse begins here -->
+      
+F(?) Virtual Window Manager
+
+似乎有点开始受不了 GNOME 的臃肿，加上内心装帅的欲望驱动，不久前我装了 FVWM。
+它的全称就是标题，曾经在王垠的主页上瞻仰过几次，在我遇到过的开源软件中属于高山仰止类，
+所以装好之后也就没怎么动过。最近暑假考研班上得人无精打采，决定找些事情刺激一下，
+于是又翻将出来倒腾。它的 man page 实在吓人，所以决定做一些摘抄，就暂时放在这里吧。
+
+<img src="../images/fvwm-logo-gradient-small.png" />
+
+
+BUILT-IN KEY AND MOUSE BINDINGS
+
+
+    Key Help R A Popup MenuFvwmRoot
+    Key F1 R A Popup MenuFvwmRoot
+    Key Tab A M WindowList Root c c NoDeskSort
+    Key Escape A MC EscapeFunc
+    Mouse 1 R A Menu MenuFvwmRoot
+    Mouse 1 T   A FuncFvwmRaiseLowerX Move
+    Mouse 1 FS  A FuncFvwmRaiseLowerX Resize
+    Mouse 2 FST A FuncFvwmRaiseLowerX Move
+    AddToFunc FuncFvwmRaiseLowerX
+    + I Raise
+    + M $0
+    + D Lower
+
+
+The Help and F1 keys invoke a built-in menu that fvwm creates. This is
+primarily for new users that have not created their own configuration file.
+Either key on the root (background) window pops up an menu to help you get
+started.
+The Tab key pressed anywhere with the Meta key (same as the Alt key on PC
+keyboards) held down pop-ups a window list.
+Mouse button 1 on the title-bar or side frame can move, raise or lower a window.
+Mouse button 1 on the window corners can resize, raise or lower a window.
+
+You can override or remove these bindings. To remove the window list binding,
+use this:
+
+
+    Key Tab A M -
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./fvwm.html">FVWM</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	  <li><a href="./mplayer.html">Mplayer</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://xiaonei.com/leto">
+	      校内网 - 陈养剑</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://www.debian.org/">
+	      <img src="../images/powered_by_debian.png" 
+		   alt="Powered by debian" /></a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://www.getfirefox.com/">
+	      <img src="../images/get_firefox_small.png"
+		   alt="Get firefox?" /></a></li>
+	  <li><a href="http://easybar.8866.org/~pluskid/">
+	      pluskid - 星黎殿</a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2007年09月06日</p>
+    </div><!-- footer-->
+  </body>
+</html>

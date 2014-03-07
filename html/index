@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>采薇采薇 - leto.org</title>
+    <meta name="generator" content="muse.el" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDB</a></li>
+	<li><a href="./tool.html">Smith</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./photo.html">Galleries</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>采薇采薇</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!-- Page published by Emacs Muse begins here -->
+      
+自娱自乐
+
+拿来耍的玩具，不指望能真做出什么惊天地泣鬼神的东西来。只是自己平时情绪的收容所，
+有好东西我会弄到这里来与大家分享，有不爽的事情我更会到这里来发泄。
+初具规模纯粹练习用，因此更新不会及时，信息未必准确，做好心理准备。，主要的几个页面都码了一些字上去，随便逛逛吧。放张灌高之湘北全家福，
+来点温馨的气氛。
+
+
+
+看电影看小说听听歌
+
+除了写博加灌水之外，似乎很少有机会能真正写自己的网页，今天居然碰上了这等机会，却显得近乡情怯，
+不免忸怩起来。这一部分自然是讲点个人兴趣爱好之类的东西，平生没什么长处，
+无论是身高臂展还是别的什么，都属中等，看电影看小说听听歌也是如此，
+虽然可以在老同桌面前冒充文艺小青年，然而关键时刻总要拉稀摆待。
+
+下午在 ZJG 做嵌入式实验的时候听 mushihi 和金爷聊武侠小说，
+慨叹自己确实看得不多之余不免怀念高中那段好时光。校门口粉丝店里看过的电视剧，(《寻秦记》,
+《流星花园》，后者居然一样看得津津有味，真是神奇。)
+和每晚十点钟自修归来夜宵完毕之后的例行黄易砖头加昏黄手电，浦一开始还暗自嘀咕，哇靠!
+原著这么色的阿。后来看阿看的也就习惯了，
+看到《大唐双龙传》里面小徐同志和师妃暄同学玩精神恋爱反而觉得不习惯了。
+
+其实这三个根本算不得什么鸟兴趣爱好，以前初中时候填写优秀团员申请表格也不知道什么，
+小子有幸进班主任办公室窥视，结果发现一坨坨的爱好看书的，后来小子有了电脑上了大学能够上网了，
+混了论坛，又看到一坨坨喜欢听歌的。所以这几个劳什子，顶多算得上消遣，
+只不过很少有人能够像《前门楼子九丈九》里面的那个少爷一般，志在消遣，
+虽然到最后连家业都没了只能拉洋车去，却熟知京城哪家饭馆的招牌菜最香，哪家的酒水最是了得。
+
+白话了半天什么也说不清楚，受累多等等几天， 等我搞些海报加我的观感上来。
+
+
+次世代技术男都最近在瞎忙活什么?
+
+最重要的事情自然就是这个网站，从上个学期期末的时候装了 Debian GNU/Linux 之后一直停留在换换
+GNOME 主题的阶段，新年新气象自然需要一些改变，于是就装了 apache 和 php5。前些天在研究配置,
+现在终于让这玩意动起来了，debian 下的配置文件处理方式等和官方介绍有些差别，
+综合了几个文档再参考了官方的中文手册，虽然虚拟主机搞不定用户目录没效果，除了这些以外还算可以。
+以上算是比较长远的，近期的自然是 muse 的使用，这个工具在 emacs-wiki
+的基础之上产生，不过我 emacs 入门较晚，根本不知道后者，所以也无所谓了，不过 muse 确实挺好用。
+
+debian 其实已经装了蛮久了，去年放寒假的时候下定的决心，删除了原来占着整块硬盘的 ubuntu，
+先装了本本自带的 Windows XP，又装上了 debian etch，玩双系统。这学期开学以来，
+曾经有蛮长时间在 XP 下搞些乱七八糟的东西，尝试各个版本的 counter strike 发行版，和同学玩
+dota 等 (第一次玩，居然也杀了两个人哈哈，不过死了很多次因为不会买鞋)，
+所以技术性的东西基本没搞过。
+
+前段时间听说了 Debian 4.0 终于发布之后，才又把激情转移到了 Linux 上来，
+虽然依然是菜依然没有编译过内核依然不清楚很多命令依然不习惯看手册，但是有开始就不怕，毕竟 emacs,
+vim 之类的编辑器已经了解得蛮多，这个时候研究起来，方便融会贯通。
+今天把两者的中文字体好好配置了一番，为了方便使用 emacs 的中文字体我放弃了微软雅黑，
+不知道为什么用雅黑有的时候会有点卡，现在用的是方正准圆。vim 的中文一度是我心中之痛，
+因为一直以为只能选择英文字体，选中文字体的话英文又不等宽了，然而事实是我配置文件写错了，
+可惜 vim 并没有指出我的错误，或者指出了我没仔细看=..=
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./fvwm.html">FVWM</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	  <li><a href="./mplayer.html">Mplayer</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://xiaonei.com/leto">
+	      校内网 - 陈养剑</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://www.debian.org/">
+	      <img src="../images/powered_by_debian.png" 
+		   alt="Powered by debian" /></a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://www.getfirefox.com/">
+	      <img src="../images/get_firefox_small.png"
+		   alt="Get firefox?" /></a></li>
+	  <li><a href="http://easybar.8866.org/~pluskid/">
+	      pluskid - 星黎殿</a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2007年09月04日</p>
+    </div><!-- footer-->
+  </body>
+</html>

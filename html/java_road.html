@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>On The Java Road - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>On The Java Road</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">foreword</a></dt>
+<dt><a href="#sec2">In Collaboration With XML</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">Some info about XML</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec4">Net</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec5">Proxies and Firewalls</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec6">CLASSPATH</a></dt>
+<dt><a href="#sec7">WARN: [Parameters] Parameters: Invalid chunk ignored.</a></dt>
+<dt><a href="#sec8">native2ascii</a></dt>
+<dt><a href="#sec9">struts 2</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec10">a configuration sample</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+foreword</h2>
+
+<p class="first">它不是我最喜欢的语言，却是我使用得最多的，至少目前是这样。或许其中也有
+Java 那些名字都老长老长的缘故，哈哈。想像一下吧，=try catch= 要捕获的
+那些异常的名字，已定义的常量的名字。如果你要让捕获更加小心翼翼更加合乎
+逻辑，如果你没在用 Eclipse 或者 Netbeans 的话我觉得最好还是放弃。不过
+如果 Vim、Emacs 配置的好，自然不用理会我的想法。</p>
+
+<p>本页的标题抄袭自 James Gosling 的博客。暂时只有这些内容，以后添加。</p>
+
+
+<h2><a name="sec2" id="sec2"></a>
+In Collaboration With XML</h2>
+
+<h3><a name="sec3" id="sec3"></a>
+Some info about XML</h3>
+
+<p class="first">XML stands for eXtensible Markuo Language which is NOT a  replacement
+for HTML. There are 5 predefined entity references in XML. NOTE: Only
+the characters &quot;&lt;&quot; and &quot;&amp;&quot; are strictly illegal in XML. The greater
+than character is legal, but it is a good habit to replace it.</p>
+
+<table class="muse-table">
+  <thead>
+    <tr>
+      <th>&amp;lt;</th>
+      <th>&lt;</th>
+      <th>less than</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>&amp;quot;</td>
+      <td>&quot;</td>
+      <td>quotation mark</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>&amp;gt;</td>
+      <td>&gt;</td>
+      <td>greater than</td>
+    </tr>
+    <tr>
+      <td>&amp;amp;</td>
+      <td>&amp;</td>
+      <td>ampersand</td>
+    </tr>
+    <tr>
+      <td>&amp;apos;</td>
+      <td>'</td>
+      <td>apostrophe</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>HTML reduces multiple white space characters to a single white
+space. With XML, the white space in your document is not truncated.</p>
+
+<p>In Windows applications, a new line is normally stored as a pair of
+characters: carriage return (CR) and line feed (LF). The character
+pair bears some resemblance to the typewriter actions of setting a new
+line. In Unix applications, a new line is normally stored as a LF
+character. Macintosh applications use only a CR character to store a
+new line.</p>
+
+
+
+<h2><a name="sec4" id="sec4"></a>
+Net</h2>
+
+<h3><a name="sec5" id="sec5"></a>
+Proxies and Firewalls</h3>
+
+<p class="first">If you are behind a firewall, you need to tell Java the details of
+your proxy server and its port number in order to access hosts outside
+the firewall. You do this by defining the applicable HTTP or FTP
+properties:</p>
+
+<ul>
+<li>http.proxyHost (default: &lt;none&gt;)</li>
+<li>http.proxyPort (default: 80 if http.proxyHost specified)</li>
+<li>http.nonProxyHosts (default: &lt;none&gt;)</li>
+</ul>
+
+<p>The http.proxyHost and http.proxyPort indicate the proxy server and
+port that the HTTP protocol handler will use. The http.nonProxyHosts
+can be set to specify the hosts which should be connected to directly
+(not through the proxy server). The value of the http.nonProxyHosts
+property can be a list of hosts, each separated by a |; it can also
+take a regular expression for matches; for example: <em>.sfbay.sun.com
+would match any fully qualified hostname in the sfbay domain.</p>
+
+<ul>
+<li>ftp.proxyHost (default: &lt;none&gt;)</li>
+<li>ftp.proxyPort (default: 80 if ftp.proxyHost specified)</li>
+<li>ftp.nonProxyHosts (default: &lt;none&gt;)</li>
+</ul>
+
+<p>The ftp.proxyHost and ftp.proxyPort indicate the proxy server and port
+that the FTP protocol handler will use. The ftp.nonProxyHosts is
+similar to http.nonProxyHosts and indicates the hosts that should be
+connected to directly and not through the proxy server.</p>
+
+<p>You can set these properties when you start your application:</p>
+
+<ul>
+<li>Prompt&gt; java -Dhttp.proxyHost=HostName -Dhttp.proxyPort=PortNumber yourApp</li>
+</ul>
+
+<p><a href="http://www.rgagnon.com/javadetails/java-0085.html">more</a></p>
+
+</em>* JSP related
+<h4><a name="sec6" id="sec6"></a>
+CLASSPATH</h4>
+
+<p class="first">有许多选择，把相应的 jar 丢到 [your app]/WEN-INF/lib/ 下面，或者编译的
+时候指定：</p>
+
+<pre class="example">
+javac -classpath &quot;.;C:\Program Files\Tomcat 5.5\common\lib\servlet-api.jar;&quot; leto/servlet/foo.java
+</pre>
+
+
+<h4><a name="sec7" id="sec7"></a>
+WARN: [Parameters] Parameters: Invalid chunk ignored.</h4>
+
+<p class="first">When interacting with the application, such as
+facelets-component-showcase on JBoss 4.2, the following will be
+displayed in the server log:</p>
+
+<p><code>WARN: [Parameters] Parameters: Invalid chunk ignored.</code></p>
+
+<p>This is due to a parameter with no name &mdash; the string &quot;&amp;=&quot; appearing
+in the form-encoded data. It is not clear which parameter is being
+encoded in this way.</p>
+
+
+<h4><a name="sec8" id="sec8"></a>
+native2ascii</h4>
+
+<p class="first">According to the <a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/native2ascii.html">official doc</a>, the default encoding is taken from
+System property file.encoding. So when you try to convert a
+non-english file (say, GBK, BIG-5...), you should use the -encoding
+option to sepecify the exact <a href="http://java.sun.com/j2se/1.4.2/docs/guide/intl/encoding.doc.html">encoding</a> of the original file.</p>
+
+
+<h4><a name="sec9" id="sec9"></a>
+struts 2</h4>
+
+<h5><a name="sec10" id="sec10"></a>
+a configuration sample</h5>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;
+&lt;web-app version=<span class="string">"2.4"</span> xmlns=<span class="string">"http://java.sun.com/xml/ns/j2ee"</span>
+         xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+         xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/j2ee"</span>&gt;
+  &lt;display-name&gt;S2 Example Application - Chapter 1 - Hello World
+  &lt;/display-name&gt;
+  &lt;filter&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.FilterDispatcher
+    &lt;/filter-class&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;actionPackages&lt;/param-name&gt;
+      &lt;param-value&gt;manning&lt;/param-value&gt;
+    &lt;/init-param&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;anotherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;manning.servlet.AnotherServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;anotherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/anotherServlet&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+  &lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+&lt;/web-app&gt;
+</pre>
+
+
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

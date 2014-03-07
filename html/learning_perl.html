@@ -1,0 +1,2390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>Learning Perl - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>Learning Perl</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">写在前面</a></dt>
+<dt><a href="#sec2">Chapter 1 简介</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">Exercise 1 Hello world.</a></dt>
+<dt><a href="#sec4">Exercise 3</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec5">Chapter 2 标量数据</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec6">Exercise 3</a></dt>
+<dt><a href="#sec7">Exercise 4 A not very robust one. :-/</a></dt>
+<dt><a href="#sec8">Exercise 5</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec9">Chapter 3 列表和数组</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec10">Exercise 1</a></dt>
+<dt><a href="#sec11">Exercise 2 mind qw.</a></dt>
+<dt><a href="#sec12">Exercise 3</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec13">Chapter 4 子例程</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec14">Exercise 1</a></dt>
+<dt><a href="#sec15">Exercise 2</a></dt>
+<dt><a href="#sec16">Exercise 3</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec17">Chapter 5 输入与输出</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec18">Exercise 1</a></dt>
+<dt><a href="#sec19">Exercise 2</a></dt>
+<dt><a href="#sec20">Exercise 3</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec21">Chapter 6 散列</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec22">Exercise 1</a></dt>
+<dt><a href="#sec23">Exercise 2</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec24">Chapter 7 正则表达式</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec25">Exercise 1 &amp; Exercise 2</a></dt>
+<dt><a href="#sec26">Exercise 3 Change pattern to <code>/\./</code>.</a></dt>
+<dt><a href="#sec27">Exercise 4 <code>/[A-Z][a-z]+/</code></a></dt>
+<dt><a href="#sec28">Exercise 5 <code>/(wilma.*fred)|(fred.*wilma)/</code></a></dt>
+</dl>
+</dd>
+<dt><a href="#sec29">Chapter 8 以正则表达式进行匹配</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec30">Exercise 1 <code>/match/</code></a></dt>
+<dt><a href="#sec31">Exercise 2 <code>/\w+a\b/</code></a></dt>
+<dt><a href="#sec32">Exercise 3 &amp; Exercise 4</a></dt>
+<dt><a href="#sec33">Exercise 5</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec34">Chapter 9 以正则表达式处理文本</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec35">Exercise 1</a></dt>
+<dt><a href="#sec36">Exercise 2</a></dt>
+<dt><a href="#sec37">Exercise 3</a></dt>
+<dt><a href="#sec38">Exercise 4</a></dt>
+<dt><a href="#sec39">Exercise 5</a></dt>
+<dt><a href="#sec40">The 'official' answer</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec41">Chapter 10 其他控制结构</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec42">Exercise 1</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec43">Chapter 11 文件测试</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec44">Exercise 1</a></dt>
+<dt><a href="#sec45">Exercise 2</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec46">chapter 12 目录操作</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec47">Exercise 1</a></dt>
+<dt><a href="#sec48">Exercise 2 &amp; 3</a></dt>
+<dt><a href="#sec49">Exercise 4</a></dt>
+<dt><a href="#sec50">Exercise 5</a></dt>
+<dt><a href="#sec51">Exercise 6</a></dt>
+<dt><a href="#sec52">Exercise 7</a></dt>
+<dt><a href="#sec53">Exercise 8</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec54">Chapter 13 字符串与排序</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec55">Exercise 1</a></dt>
+<dt><a href="#sec56">Exercise 2</a></dt>
+<dt><a href="#sec57">Exercise 3</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec58">Chapter 14 进程管理</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec59">Exercise 1</a></dt>
+<dt><a href="#sec60">Exercise 2</a></dt>
+<dt><a href="#sec61">Exercise 3</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec62">Chapter 15 Perl 模块</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec63">Exercise 1</a></dt>
+<dt><a href="#sec64">Exercise 2</a></dt>
+<dt><a href="#sec65">Exercise 3</a></dt>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+写在前面</h2>
+
+<p class="first">羊陀书太厚，于是买了这本作为入门。说不清楚自己为什么要学习 Perl，版上
+用的人似乎也不多，我知道的就只有超人。或许最主要的原因还是 Lighty，它
+的配置文件是用这个的，当初配置它的时候看了下然后把事情搞定，于是就很牛
+掰地把 Perl 写到自己会的语言清单里面去，现在想想这样的简历拿出来未免心
+虚，于是决定学一下。照老规矩贴课后习题的作业。</p>
+
+
+<h2><a name="sec2" id="sec2"></a>
+Chapter 1 简介</h2>
+
+<h3><a name="sec3" id="sec3"></a>
+Exercise 1 Hello world.</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>print <span class="string">"hello, world!\n"</span>;
+</pre>
+
+
+<h3><a name="sec4" id="sec4"></a>
+Exercise 3</h3>
+
+<p class="first">The code is printed on the book already. So all I have to do is type
+it in and understand it. That is not that hard to me because I have
+been learning a little PHP and regular expressions for a while. The
+code just simply store the every line of the output of that shell
+command into array @lines, then use the foreach loop to work through
+it and change every word between '&lt;' and '&gt;' to upper case using
+regular expression.</p>
+
+<p>As you may noticed, the print has no parameters. In perl, sometimes
+when the parameters are omitted, the magic scalar $_ will be used as
+the default parameter. So it would be @lines in this example.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>@<span class="underline"><span class="variable-name">lines</span></span> = <span class="string">`perldoc -u -f atan2`</span>;
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">lines</span></span>) {
+    s<span class="string">/\w&lt;([^&gt;]+)&gt;/\U$1/</span>g;
+    print;
+}
+</pre>
+
+
+
+<h2><a name="sec5" id="sec5"></a>
+Chapter 2 标量数据</h2>
+
+<h3><a name="sec6" id="sec6"></a>
+Exercise 3</h3>
+
+<p class="first">Previous exercises are the basis of this one, so getting this one
+posted only would be appropriate enough. This exercise works on I/O
+and operators.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>chomp($<span class="variable-name">radius</span> = &lt;<span class="constant">STDIN</span>&gt;);
+<span class="keyword">if</span> ($<span class="variable-name">radius</span> &lt;= 0 ) {
+    print <span class="string">"0\n"</span>;
+}
+<span class="keyword">else</span> {
+    $<span class="variable-name">circumference</span> = 2 * 3.141592654 * $<span class="variable-name">radius</span>;
+    print $<span class="variable-name">circumference</span> . <span class="string">"\n"</span>;
+}
+</pre>
+
+
+<h3><a name="sec7" id="sec7"></a>
+Exercise 4 A not very robust one. :-/</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>chomp($<span class="variable-name">operand_1</span> = &lt;<span class="constant">STDIN</span>&gt;);
+chomp($<span class="variable-name">operand_2</span> = &lt;<span class="constant">STDIN</span>&gt;);
+print $<span class="variable-name">operand_1</span> * $<span class="variable-name">operand_2</span> . <span class="string">"\n"</span>;
+</pre>
+
+
+<h3><a name="sec8" id="sec8"></a>
+Exercise 5</h3>
+
+<p class="first">Until the exercise problem prompts me use the 'x' operator, I was
+thinking some very ancient and traditional 'for' loop to solve this
+problem. So here are two solutions for this problem. The easier one is
+replace the '*' operator by 'x' in the solution of
+exercise four. My initial way is this one below.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>chomp($<span class="variable-name">operand_1</span> = &lt;<span class="constant">STDIN</span>&gt;);
+chomp($<span class="variable-name">operand_2</span> = &lt;<span class="constant">STDIN</span>&gt;);
+<span class="comment-delimiter">#</span><span class="comment">print $operand_1 x $operand_2 . "\n";
+</span><span class="keyword">while</span> ($<span class="variable-name">operand_2</span> &gt; 0) {
+    print $<span class="variable-name">operand_1</span>;
+    $<span class="variable-name">operand_2</span> -= 1;
+}
+print <span class="string">"\n"</span>;
+</pre>
+
+
+
+<h2><a name="sec9" id="sec9"></a>
+Chapter 3 列表和数组</h2>
+
+<h3><a name="sec10" id="sec10"></a>
+Exercise 1</h3>
+
+<p class="first">A context problem was encountered when I was doing this chapter's
+homeworks, which is a good thing for learning Perl but an boresome
+thing to get the job done, that the 'print' just ignore the fact that
+I was intend to use a list context. I think the '.' operator should be
+the most suspected.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>chomp(@<span class="underline"><span class="variable-name">lines</span></span> = &lt;<span class="constant">STDIN</span>&gt;);
+@<span class="underline"><span class="variable-name">lines</span></span> = reverse @<span class="underline"><span class="variable-name">lines</span></span>;
+print <span class="string">"@lines\n"</span>;
+</pre>
+
+
+<h3><a name="sec11" id="sec11"></a>
+Exercise 2 mind qw.</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>@<span class="underline"><span class="variable-name">names</span></span> = qw<span class="string">/ fred betty barney dino wilma pebbles bamm-bamm /</span>;
+chomp(@<span class="underline"><span class="variable-name">lines</span></span> = &lt;<span class="constant">STDIN</span>&gt;);
+<span class="comment-delimiter">#</span><span class="comment">@lines = reverse @lines;
+</span><span class="keyword">foreach</span> $<span class="variable-name">choice</span> (@<span class="underline"><span class="variable-name">lines</span></span>) {
+    print $<span class="variable-name">names</span>[$<span class="variable-name">choice</span>** 1] . <span class="string">"\n"</span>;
+}
+</pre>
+
+
+<h3><a name="sec12" id="sec12"></a>
+Exercise 3</h3>
+
+<p class="first">As I've mentioned in exercise one of this chapter, to avoid the issue
+that <code>print @lines . &quot;\n&quot;;</code> would take the @lines as a scalar which was
+not what I intended to, I use foreach.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>chomp(@<span class="underline"><span class="variable-name">lines</span></span> = &lt;<span class="constant">STDIN</span>&gt;);
+@<span class="underline"><span class="variable-name">lines</span></span> = sort @<span class="underline"><span class="variable-name">lines</span></span>;
+print <span class="string">"@lines\n"</span>;
+<span class="keyword">foreach</span> $<span class="variable-name">sorted</span> (@<span class="underline"><span class="variable-name">lines</span></span>) {
+    print $<span class="variable-name">sorted</span> . <span class="string">"\n"</span>;
+}
+</pre>
+
+
+
+<h2><a name="sec13" id="sec13"></a>
+Chapter 4 子例程</h2>
+
+<h3><a name="sec14" id="sec14"></a>
+Exercise 1</h3>
+
+<p class="first">The main part of the code below is already written. My code,
+subroutine 'total', is derived from the better version of 'max' from
+this book.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="type">my</span> @<span class="underline"><span class="variable-name">fred</span></span> = qw<span class="string">/ 1 3 5 7 9/</span>;
+<span class="type">my</span> $<span class="variable-name">fred_total</span> = &amp;<span class="function-name">total</span>(@<span class="underline"><span class="variable-name">fred</span></span>);
+print <span class="string">"The total of \@fred is $fred_total.\n"</span>;
+
+print <span class="string">"Enter some numbers on seperate lines: "</span>;
+<span class="type">my</span> $<span class="variable-name">user_total</span> = &amp;<span class="function-name">total</span>(&lt;<span class="constant">STDIN</span>&gt;);
+print <span class="string">"The total of those numbers is $user_total.\n"</span>;
+
+<span class="keyword">sub</span> <span class="function-name">total</span> {
+    <span class="type">my</span> ($<span class="variable-name">total</span>) = shift @<span class="underline"><span class="variable-name">_</span></span>;
+    <span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">_</span></span>) {
+        $<span class="variable-name">total</span> += $<span class="variable-name">_</span>;
+    }
+    $<span class="variable-name">total</span>;
+}
+</pre>
+
+
+<h3><a name="sec15" id="sec15"></a>
+Exercise 2</h3>
+
+<p class="first">Well, this one is easy if we do it the book's way. Just create an
+array variable.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="type">my</span> @<span class="underline"><span class="variable-name">array</span></span> = 1..1000; <span class="comment"># Just add this one.</span></pre>
+
+
+<h3><a name="sec16" id="sec16"></a>
+Exercise 3</h3>
+
+<p class="first">Again the code of previous subroutine can be taken advantage.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="type">my</span> @<span class="underline"><span class="variable-name">fred</span></span> = &amp;<span class="function-name">above_average</span>(1..10);
+print <span class="string">"\@fred is @fred\n"</span>;
+print <span class="string">"(Should be 6 7 8 9 10)\n"</span>;
+
+<span class="type">my</span> @<span class="underline"><span class="variable-name">barney</span></span> = &amp;<span class="function-name">above_average</span>(100, 1..10);
+print <span class="string">"\@barney is @barney\n"</span>;
+print <span class="string">"(Should be jsut 100)\n"</span>;
+
+<span class="keyword">sub</span> <span class="function-name">above_average</span> {
+    <span class="type">my</span> @<span class="underline"><span class="variable-name">above</span></span>;
+    <span class="type">my</span> $<span class="variable-name">average</span> = &amp;<span class="function-name">average</span>(@<span class="underline"><span class="variable-name">_</span></span>);
+    <span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">_</span></span>) {
+        <span class="keyword">if</span> ($<span class="variable-name">_</span> &gt; $<span class="variable-name">average</span>) {
+            push (@<span class="underline"><span class="variable-name">above</span></span>, $<span class="variable-name">_</span>);
+        }
+    }
+    @<span class="underline"><span class="variable-name">above</span></span>;
+}
+
+<span class="keyword">sub</span> <span class="function-name">average</span> {
+    <span class="type">my</span> ($<span class="variable-name">total</span>) = shift @<span class="underline"><span class="variable-name">_</span></span>;
+    <span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">_</span></span>) {
+        $<span class="variable-name">total</span> += $<span class="variable-name">_</span>;
+    }
+    $<span class="variable-name">total</span> / ($#<span class="underline"><span class="variable-name">_</span></span> + 2);         <span class="comment"># We've shifted @_;
+</span>}
+</pre>
+
+
+
+<h2><a name="sec17" id="sec17"></a>
+Chapter 5 输入与输出</h2>
+
+<h3><a name="sec18" id="sec18"></a>
+Exercise 1</h3>
+
+<p class="first">As a matter of fact, the while loop could be written more briefly by
+using Perl syntax sugar and its most loved variable <code>$_</code>. There is one
+more thing which I think should be aware of that the difference
+between using bare list and using list surrounded by quotation
+marks. Perl will simply get every scalar of that list printed out if
+the used in first way.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">#</span><span class="comment">tac
+</span><span class="keyword">while</span> (defined($<span class="variable-name">line</span> = &lt;&gt;)) {
+    push(@<span class="underline"><span class="variable-name">tac</span></span>, $<span class="variable-name">line</span>);
+}
+print reverse @<span class="underline"><span class="variable-name">tac</span></span>;
+</pre>
+
+
+<h3><a name="sec19" id="sec19"></a>
+Exercise 2</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">while</span> (defined($<span class="variable-name">lines</span> = &lt;<span class="constant">STDIN</span>&gt;)) {
+    chomp($<span class="variable-name">lines</span>);
+    push(@<span class="underline"><span class="variable-name">input</span></span>, $<span class="variable-name">lines</span>);
+}
+print ((1..9, 0) x 7);
+print <span class="string">"\n"</span>;
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">input</span></span>) {
+    printf <span class="string">"%20s\n"</span>, $<span class="variable-name">_</span>;
+}
+</pre>
+
+
+<h3><a name="sec20" id="sec20"></a>
+Exercise 3</h3>
+
+<p class="first">Whether <code>&quot;%$indents\n&quot;</code> will work or not has not been testified. Guess
+not. Anyway, this separation of format parameter from function printf
+does a lot of help to me. It is used in a wide range.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">while</span> (defined($<span class="variable-name">lines</span> = &lt;<span class="constant">STDIN</span>&gt;)) {
+    chomp($<span class="variable-name">lines</span>);
+    push(@<span class="underline"><span class="variable-name">input</span></span>, $<span class="variable-name">lines</span>);
+}
+$<span class="variable-name">indent</span> = shift @<span class="underline"><span class="variable-name">input</span></span>;
+print ((1..9, 0) x ($<span class="variable-name">indent</span> / 10));
+print <span class="string">"\n"</span>;
+$<span class="variable-name">format</span> = <span class="string">"%"</span> . $<span class="variable-name">indent</span> . <span class="string">"s\n"</span>;
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">input</span></span>) {
+    printf $<span class="variable-name">format</span>, $<span class="variable-name">_</span>;
+}
+</pre>
+
+
+
+<h2><a name="sec21" id="sec21"></a>
+Chapter 6 散列</h2>
+
+<h3><a name="sec22" id="sec22"></a>
+Exercise 1</h3>
+
+<p class="first">Just as what you see, I use the biref version of 'while' instead at
+this time. I didn't try omit the <code>$_</code> of push function, so I have no
+idea about whether that would work out or not.</p>
+
+<p>The special separator <code>=&gt;</code> is just the same as comma to
+Perl.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>%<span class="underline"><span class="variable-name">family</span></span> = (
+    <span class="string">"fred"</span> =&gt; <span class="string">"flintstone"</span>,
+    <span class="string">"barney"</span> =&gt; <span class="string">"rubble"</span>,
+    <span class="string">"wilma"</span> =&gt; <span class="string">"flintstone"</span>,
+    );
+
+<span class="keyword">while</span> (&lt;<span class="constant">STDIN</span>&gt;) {
+    chomp;
+    push(@<span class="underline"><span class="variable-name">first</span></span>, $<span class="variable-name">_</span>);
+}
+$<span class="variable-name">format</span> = <span class="string">"%-15s"</span> x 2 . <span class="string">"\n"</span>;
+printf $<span class="variable-name">format</span>, <span class="string">"First Name"</span>, <span class="string">"Family Name"</span>;
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">first</span></span>) {
+    <span class="keyword">if</span> ($<span class="variable-name">family</span>{$<span class="variable-name">_</span>}) {
+        printf $<span class="variable-name">format</span>, $<span class="variable-name">_</span>, $<span class="variable-name">family</span>{$<span class="variable-name">_</span>};
+    }
+    <span class="keyword">else</span> {
+        printf $<span class="variable-name">format</span>, $<span class="variable-name">_</span>, <span class="string">"Unknown"</span>;
+    }
+}
+</pre>
+
+
+<h3><a name="sec23" id="sec23"></a>
+Exercise 2</h3>
+
+<p class="first">The <code>if-else</code> branch is not essential to accomplish the work proposed by
+this exercise. Perl would transform <code>undef</code> to 0 if it encounters a data
+operating context. If the key has not been inserted to the hash yet,
+represents the key is still zero, the relevant value to this specific
+key which is undef will be used as 0 to plus 1. That is, This line of
+code will work.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">while</span> (&lt;<span class="constant">STDIN</span>&gt;) {
+    chomp;
+    <span class="keyword">if</span> (!exists $<span class="variable-name">count</span>{$<span class="variable-name">_</span>}) {
+        $<span class="variable-name">count</span>{$<span class="variable-name">_</span>} = 1;
+    }
+    <span class="keyword">else</span> {
+        $<span class="variable-name">count</span>{$<span class="variable-name">_</span>} += 1;
+    }
+    <span class="comment"># Actually the if-else branch is not essential,
+</span>    <span class="comment"># just do this will work.
+</span><span class="comment-delimiter">#     </span><span class="comment">$count{$_} += 1;
+</span>}
+$<span class="variable-name">format</span> = <span class="string">"%-10s%5d\n"</span>;
+<span class="keyword">while</span> (($<span class="variable-name">key</span>, $<span class="variable-name">value</span>) = each %<span class="underline"><span class="variable-name">count</span></span>) {
+    printf $<span class="variable-name">format</span>, $<span class="variable-name">key</span>, $<span class="variable-name">value</span>;
+}
+
+<span class="comment-delimiter"># </span><span class="comment">sort names first.
+</span><span class="keyword">foreach</span> $<span class="variable-name">key</span> (sort keys %<span class="underline"><span class="variable-name">count</span></span>) {
+    printf $<span class="variable-name">format</span>, $<span class="variable-name">key</span>, $<span class="variable-name">count</span>{$<span class="variable-name">key</span>};
+}
+</pre>
+
+
+
+<h2><a name="sec24" id="sec24"></a>
+Chapter 7 正则表达式</h2>
+
+<h3><a name="sec25" id="sec25"></a>
+Exercise 1 &amp; Exercise 2</h3>
+
+<p class="first">Those examples provided in this book didn't introduce the
+<code>=~</code> operator because you are not required to specifically
+using this operator to match the Perl's most loved variable to your
+pattern.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">unless</span> (open FILE, <span class="string">"&lt;"</span>, <span class="string">"fred.txt"</span>) {
+    <span class="keyword">die</span> <span class="string">"Cannot open input file: $!"</span>;
+}
+<span class="keyword">while</span> (&lt;<span class="constant">FILE</span>&gt;) {
+    <span class="comment"># ($_ =~ /(f|F)red/) {
+</span>    <span class="keyword">if</span> (<span class="string">/(f|F)red/</span>) {
+        print;
+    }
+}
+close FILE;
+</pre>
+
+
+<h3><a name="sec26" id="sec26"></a>
+Exercise 3 Change pattern to <code>/\./</code>.</h3>
+
+
+<h3><a name="sec27" id="sec27"></a>
+Exercise 4 <code>/[A-Z][a-z]+/</code></h3>
+
+
+<h3><a name="sec28" id="sec28"></a>
+Exercise 5 <code>/(wilma.*fred)|(fred.*wilma)/</code></h3>
+
+
+
+<h2><a name="sec29" id="sec29"></a>
+Chapter 8 以正则表达式进行匹配</h2>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter"># </span><span class="comment">A script to examine pattern
+</span><span class="keyword">while</span> (&lt;&gt;) {
+    chomp;
+    <span class="keyword">if</span> (<span class="string">/YOUR_PATTERN_GOES_HERE/</span>) {
+        print <span class="string">"Matched: |$`&lt;$&amp;&gt;$'|\n"</span>;
+    }
+    <span class="keyword">else</span> {
+        print <span class="string">"No matched: |$_|\n"</span>;
+    }
+}
+</pre>
+
+<h3><a name="sec30" id="sec30"></a>
+Exercise 1 <code>/match/</code></h3>
+
+
+<h3><a name="sec31" id="sec31"></a>
+Exercise 2 <code>/\w+a\b/</code></h3>
+
+<p class="first">The anchor \b which indicates boundary of a word should not be
+omitted. If 'a' is accepted, please change \w+ to \w*.</p>
+
+
+<h3><a name="sec32" id="sec32"></a>
+Exercise 3 &amp; Exercise 4</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">while</span> (&lt;&gt;) {
+    chomp;
+    <span class="keyword">if</span> (<span class="string">/(\w+a)(\b.{0,4})/</span>) {
+        print <span class="string">"Matched: '$1' '$2'\n"</span>;
+    }
+    <span class="keyword">else</span> {
+        print <span class="string">"No matched: |$_|\n"</span>;
+    }
+}
+</pre>
+
+
+<h3><a name="sec33" id="sec33"></a>
+Exercise 5</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">while</span> (&lt;&gt;) {
+    chomp;
+    <span class="keyword">if</span> (<span class="string">/\s+$/</span>) {
+        print <span class="string">"$`|$&amp;|\n"</span>;
+    }
+    <span class="keyword">else</span> {
+        print <span class="string">"Sentence is not ended with white spaces.\n"</span>;
+    }
+}
+</pre>
+
+
+
+<h2><a name="sec34" id="sec34"></a>
+Chapter 9 以正则表达式处理文本</h2>
+
+<h3><a name="sec35" id="sec35"></a>
+Exercise 1</h3>
+
+<p class="first">The source speaks. Wrap variables by parentheses to introduce scalar
+in pattern.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span>chomp($<span class="variable-name">what</span> = &lt;<span class="constant">STDIN</span>&gt;);
+<span class="keyword">while</span>(&lt;&gt;) {
+    chomp;
+    <span class="keyword">if</span> (<span class="string">/($what){3}/</span>) {
+        print <span class="string">"Matched!\n"</span>;
+    }
+}
+</pre>
+
+
+<h3><a name="sec36" id="sec36"></a>
+Exercise 2</h3>
+
+<p><code>$^I</code> and the diamond command. Like Perl geeks always said, &quot;there is
+always more than one way.&quot; Anyway, the use of 'g' and 'i' parameters is
+preferred.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+$^I = <span class="string">".out"</span>;
+
+<span class="keyword">while</span> (&lt;&gt;) {
+    s<span class="string">/(F|f)red/Larry/</span>;
+    print;
+}
+</pre>
+
+
+<h3><a name="sec37" id="sec37"></a>
+Exercise 3</h3>
+
+<p class="first">At my first thought, there is no need of use some anchor like \n or
+null(\0). That was wrong.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+$^I = <span class="string">".out"</span>;
+
+<span class="keyword">while</span> (&lt;&gt;) {
+    chomp;
+    s<span class="string">/Fred/\n/</span>gi;
+    s<span class="string">/Wilma/Fred/</span>gi;
+    s<span class="string">/\n/Wilma/</span>g;
+    print;
+}
+</pre>
+
+
+<h3><a name="sec38" id="sec38"></a>
+Exercise 4</h3>
+
+<p class="first">This works. I can't figure out what's the difference between my
+solution and the key provided by this book. Please refer to the book
+or check exercise 5 to see what the literal difference is. Maybe
+actually they are the same thing. lol</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+$^I = <span class="string">".out"</span>;
+
+<span class="keyword">while</span> (&lt;&gt;) {
+    s<span class="string">/(^#!.*)$/$1\n## Copyright (c) 2007 by Jake/</span>;
+    print;
+}
+</pre>
+
+
+<h3><a name="sec39" id="sec39"></a>
+Exercise 5</h3>
+
+<p class="first">Rewriting @ARGV is smart.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style> <span class="comment">#!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="type">my</span> %<span class="underline"><span class="variable-name">done</span></span>;
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">ARGV</span></span>) {
+    $<span class="variable-name">done</span>{$<span class="variable-name">_</span>} = 1;
+}
+<span class="keyword">while</span> (&lt;&gt;) {
+    <span class="keyword">if</span> (<span class="string">/^## Copyright/</span>) {
+        delete $<span class="variable-name">done</span>{$<span class="variable-name">ARGV</span>};    <span class="comment"># remove
+</span>    }
+}
+print %<span class="underline"><span class="variable-name">done</span></span>;
+@<span class="underline"><span class="variable-name">ARGV</span></span> = sort keys %<span class="underline"><span class="variable-name">done</span></span>;        <span class="comment"># reset @ARGV
+</span>
+$^I = <span class="string">".out"</span>;
+
+<span class="keyword">while</span> (&lt;&gt;) {
+    <span class="comment"># s/(^#!.*)$/$1\n## Copyright (c) 2007 by Jake/;
+</span>    <span class="keyword">if</span> (<span class="string">/^#!/</span>) {
+        $<span class="variable-name">_</span> .= <span class="string">"## Copyright (c) 2007 by Jake\n"</span>;
+    }
+    print;
+}
+</pre>
+
+
+<h3><a name="sec40" id="sec40"></a>
+The 'official' answer</h3>
+
+<p class="first">The <code>$^I</code> variable is not used in this solution. It replaces the file
+extension by 'out' instead of adding something.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="type">my</span> $<span class="variable-name">in</span> = $<span class="variable-name">ARGV</span>[0];
+<span class="keyword">if</span> (not defined $<span class="variable-name">in</span>) {
+    <span class="keyword">die</span> <span class="string">"Usage: $0 filename"</span>;
+}
+<span class="type">my</span> $<span class="variable-name">out</span> = $<span class="variable-name">in</span>;
+$<span class="variable-name">out</span> =~ s<span class="string">/(\.\w+)?$/.out/</span>;      <span class="comment"># replace file extension with .out
+</span><span class="keyword">unless</span> (open IN, <span class="string">"&lt;$in"</span>) {
+    <span class="keyword">die</span> <span class="string">"Can't open '$in': $!"</span>;
+}
+<span class="keyword">unless</span> (open OUT, <span class="string">"&gt;$out"</span>) {
+    <span class="keyword">die</span> <span class="string">"Can't write '$out': $!"</span>;
+}
+<span class="keyword">while</span> (&lt;<span class="constant">IN</span>&gt;) {
+    s<span class="string">/Larry/Fred/</span>gi;
+    print OUT $<span class="variable-name">_</span>;
+}
+</pre>
+
+
+
+<h2><a name="sec41" id="sec41"></a>
+Chapter 10 其他控制结构</h2>
+
+<h3><a name="sec42" id="sec42"></a>
+Exercise 1</h3>
+
+<p class="first">We can remove the use of <code>$quit</code> by using `last'.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="type">my</span> $<span class="variable-name">key</span> = int(1 + rand 100);
+<span class="type">my</span> $<span class="variable-name">quit</span> = 0;
+<span class="keyword">while</span> (!$<span class="variable-name">quit</span>) {
+    chomp(<span class="type">my</span> $<span class="variable-name">guess</span> = &lt;<span class="constant">STDIN</span>&gt;);
+    <span class="keyword">if</span> ($<span class="variable-name">guess</span> =~ m<span class="string">/quit|exit/</span>i) {
+        print <span class="string">"Bye. The number is: $key\n"</span>;
+        $<span class="variable-name">quit</span> = 1;
+    }
+    <span class="keyword">elsif</span> ($<span class="variable-name">guess</span> &lt; $<span class="variable-name">key</span>) {
+        print <span class="string">"Too low: $guess\n"</span>;
+    }
+    <span class="keyword">elsif</span> ($<span class="variable-name">guess</span> &gt; $<span class="variable-name">key</span>) {
+        print <span class="string">"Too high: $guess\n"</span>;
+    }
+    <span class="keyword">else</span> {                      <span class="comment"># Hit the key
+</span>        print <span class="string">"get it!\n"</span>;
+        $<span class="variable-name">quit</span> = 1;
+    }
+}
+</pre>
+
+
+
+<h2><a name="sec43" id="sec43"></a>
+Chapter 11 文件测试</h2>
+
+<h3><a name="sec44" id="sec44"></a>
+Exercise 1</h3>
+
+<p class="first">Copied from appendix one...</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="keyword">die</span> <span class="string">"There is no file specified!\n"</span> <span class="keyword">if</span> @<span class="underline"><span class="variable-name">ARGV</span></span> == 0;
+<span class="keyword">foreach</span> <span class="type">my</span> $<span class="variable-name">file</span> (@<span class="underline"><span class="variable-name">ARGV</span></span>) {
+    <span class="type">my</span> $<span class="variable-name">attributes</span> = &amp;<span class="function-name">get_attributes</span>($<span class="variable-name">file</span>);
+    print <span class="string">"$file $attributes.\n"</span>;
+}
+
+<span class="keyword">sub</span> <span class="function-name">get_attributes</span> {
+    <span class="type">my</span> $<span class="variable-name">file</span> = shift @<span class="underline"><span class="variable-name">_</span></span>;
+    <span class="keyword">return</span> <span class="string">'does not exist.'</span> <span class="keyword">unless</span> -e $<span class="variable-name">file</span>;
+    <span class="type">my</span> @<span class="underline"><span class="variable-name">attr</span></span>;
+    push @<span class="underline"><span class="variable-name">attr</span></span>, <span class="string">'readable'</span> <span class="keyword">if</span> -r $<span class="variable-name">file</span>;
+    push @<span class="underline"><span class="variable-name">attr</span></span>, <span class="string">'writable'</span> <span class="keyword">if</span> -w $<span class="variable-name">file</span>;
+    push @<span class="underline"><span class="variable-name">attr</span></span>, <span class="string">'executable'</span> <span class="keyword">if</span> -x $<span class="variable-name">file</span>;
+    <span class="keyword">return</span> <span class="string">'exits'</span> <span class="keyword">unless</span> @<span class="underline"><span class="variable-name">attr</span></span>;
+    <span class="string">'is '</span> . join <span class="string">' and '</span>, @<span class="underline"><span class="variable-name">attr</span></span>;
+}
+</pre>
+
+
+<h3><a name="sec45" id="sec45"></a>
+Exercise 2</h3>
+
+<p class="first">High-water-mark. (ACL, Access Control List) You may notice that this
+code is just the same as the code from appendix. Well, I write this
+after reading that.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="keyword">die</span> <span class="string">"No arguments!"</span> <span class="keyword">if</span> @<span class="underline"><span class="variable-name">ARGV</span></span> == 0;
+
+<span class="type">my</span> $<span class="variable-name">oldest_file</span> = shift @<span class="underline"><span class="variable-name">ARGV</span></span>;
+<span class="type">my</span> $<span class="variable-name">oldest_age</span> = -M $<span class="variable-name">oldest_file</span>;
+
+<span class="keyword">foreach</span> <span class="type">my</span> $<span class="variable-name">file</span> (@<span class="underline"><span class="variable-name">ARGV</span></span>) {
+    <span class="type">my</span> $<span class="variable-name">age</span> = -M $<span class="variable-name">file</span>;
+    ($<span class="variable-name">oldest_file</span>, $<span class="variable-name">oldest_age</span>) = ($<span class="variable-name">file</span>, $<span class="variable-name">age</span>)
+        <span class="keyword">if</span> $<span class="variable-name">age</span> &gt; $<span class="variable-name">oldest_age</span>;
+}
+
+printf <span class="string">"The oldest file is %s.\nIt is %.1f days old.\n"</span>,
+    $<span class="variable-name">oldest_file</span>, $<span class="variable-name">oldest_age</span>;
+</pre>
+
+
+
+<h2><a name="sec46" id="sec46"></a>
+chapter 12 目录操作</h2>
+
+<h3><a name="sec47" id="sec47"></a>
+Exercise 1</h3>
+
+<p class="first">The title asked whether globbing is better or directory handle is more
+efficient. But my first thought is directory handle because there is
+some example source could be used already. Anyway, the answer shows
+globbing is simpler. So the branches of if-else are written in
+different ways.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="type">my</span> $<span class="variable-name">target</span>;
+
+<span class="keyword">if</span> (@<span class="underline"><span class="variable-name">ARGV</span></span> == 0) {
+    print <span class="string">"No target, going home.\n"</span>;
+    chdir or <span class="keyword">die</span> <span class="string">"Cannot switch directory: $!\n"</span>;
+    <span class="type">my</span> @<span class="underline"><span class="variable-name">files</span></span> = &lt;*&gt;;            <span class="comment"># glob
+</span>    <span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">files</span></span>) {
+        print <span class="string">"$_\n"</span>;
+    }
+}
+<span class="keyword">else</span> {                          <span class="comment"># directory handle
+</span>    $<span class="variable-name">target</span> = shift @<span class="underline"><span class="variable-name">ARGV</span></span>;
+    print <span class="string">"Changing directory...\n"</span>;
+
+    opendir DIR, $<span class="variable-name">target</span> or <span class="keyword">die</span> <span class="string">"Cannot switch directory: $!\n"</span>;
+    <span class="keyword">while</span> (<span class="type">my</span> $<span class="variable-name">file</span> = readdir DIR) {
+        print <span class="string">"$file\n"</span>;
+    }
+}
+</pre>
+
+
+<h3><a name="sec48" id="sec48"></a>
+Exercise 2 &amp; 3</h3>
+
+<p class="first">To get those special dot files, like Larry always said, there is more
+than one way. If you intend to use glob, replace <code>&lt;*&gt;</code> with <code>&lt;.* *&gt;</code>. If
+you want to do that with directory handle, the original code will just
+do the job. To omit those files (they might be annoying), add this:</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style>    <span class="keyword">next</span> <span class="keyword">if</span> $<span class="variable-name">name</span> =~ <span class="string">/^\./</span>;
+</pre>
+
+
+<h3><a name="sec49" id="sec49"></a>
+Exercise 4</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-10
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="keyword">die</span> <span class="string">"No arguments!\n"</span> <span class="keyword">if</span> @<span class="underline"><span class="variable-name">ARGV</span></span> == 0;
+
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">ARGV</span></span>) {
+    unlink $<span class="variable-name">_</span> or warn <span class="string">"Cannot remove '$_'! $!\n"</span>;
+}
+</pre>
+
+
+<h3><a name="sec50" id="sec50"></a>
+Exercise 5</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-10
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+<span class="keyword">use</span> <span class="constant">File</span>::Basename qw<span class="string">/ basename/</span>;
+<span class="keyword">use</span> <span class="constant">File</span>::Spec::Functions qw<span class="string">/ catfile /</span>;
+
+<span class="keyword">die</span> <span class="string">"Usage: $0 &lt;source file&gt; &lt;target file&gt;\n"</span> <span class="keyword">unless</span> @<span class="underline"><span class="variable-name">ARGV</span></span> == 2;
+<span class="type">my</span> ($<span class="variable-name">source</span>, $<span class="variable-name">target</span>) = @<span class="underline"><span class="variable-name">ARGV</span></span>;
+$<span class="variable-name">target</span> = catfile($<span class="variable-name">target</span>, basename $<span class="variable-name">source</span>) <span class="keyword">if</span> (-d $<span class="variable-name">target</span>);
+<span class="comment-delimiter"># </span><span class="comment">$target =~ /\/$/; Cross platform...
+</span>
+<span class="keyword">if</span> (-e $<span class="variable-name">target</span>) {
+    warn <span class="string">"$target exits!\n"</span>;
+} <span class="keyword">elsif</span> (rename $<span class="variable-name">source</span>, $<span class="variable-name">target</span>) {
+
+} <span class="keyword">else</span> {
+    warn <span class="string">"$0 failed: $!\n"</span>;
+}
+</pre>
+
+
+<h3><a name="sec51" id="sec51"></a>
+Exercise 6</h3>
+
+<p class="first">Like the question says itself, the difference between this question
+and the question above this one is so tiny that just do some string
+replacement will finish the job well.</p>
+
+
+<h3><a name="sec52" id="sec52"></a>
+Exercise 7</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-11
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+<span class="keyword">use</span> <span class="constant">File</span>::Basename qw<span class="string">/ basename/</span>;
+<span class="keyword">use</span> <span class="constant">File</span>::Spec::Functions qw<span class="string">/ catfile /</span>;
+
+<span class="keyword">die</span> <span class="string">"Usage: $0 &lt;-s&gt; &lt;source file&gt; &lt;target file&gt;\n"</span>
+    <span class="keyword">unless</span> @<span class="underline"><span class="variable-name">ARGV</span></span> &gt;= 2 &amp;&amp; @<span class="underline"><span class="variable-name">ARGV</span></span> &lt;= 3;
+<span class="type">my</span> $<span class="variable-name">symlink</span> = $<span class="variable-name">ARGV</span>[0] eq <span class="string">'-s'</span>;
+shift @<span class="underline"><span class="variable-name">ARGV</span></span> <span class="keyword">if</span> $<span class="variable-name">symlink</span>;
+<span class="type">my</span> ($<span class="variable-name">source</span>, $<span class="variable-name">target</span>) = @<span class="underline"><span class="variable-name">ARGV</span></span>;
+$<span class="variable-name">target</span> = catfile($<span class="variable-name">target</span>, basename $<span class="variable-name">source</span>) <span class="keyword">if</span> (-d $<span class="variable-name">target</span>);
+<span class="comment-delimiter"># </span><span class="comment">$target =~ /\/$/; Cross platform...
+</span>
+<span class="keyword">if</span> (-e $<span class="variable-name">target</span>) {
+    warn <span class="string">"$target exits!\n"</span>;
+} <span class="keyword">elsif</span> ($<span class="variable-name">symlink</span>) {
+    symlink $<span class="variable-name">source</span>, $<span class="variable-name">target</span> or warn <span class="string">"Cannot make soft link: $!"</span>;
+} <span class="keyword">else</span> {
+    link $<span class="variable-name">source</span>, $<span class="variable-name">target</span> or warn <span class="string">"Cannot make soft link: $!"</span>;
+}
+</pre>
+
+
+<h3><a name="sec53" id="sec53"></a>
+Exercise 8</h3>
+
+<p class="first">Both using readlink first then check whether the variable is defined or not
+and using -l operator to check its existence then readlink are okay.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-11
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="keyword">foreach</span> (&lt;*&gt;) {
+    printf <span class="string">"%s -&gt; %s\n"</span>, $<span class="variable-name">_</span>, readlink $<span class="variable-name">_</span> <span class="keyword">if</span> -l $<span class="variable-name">_</span>;
+}
+</pre>
+
+
+
+<h2><a name="sec54" id="sec54"></a>
+Chapter 13 字符串与排序</h2>
+
+<h3><a name="sec55" id="sec55"></a>
+Exercise 1</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-11
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="type">my</span> @<span class="underline"><span class="variable-name">numbers</span></span>;
+open IN, <span class="string">"&lt;numbers.txt"</span>;
+push @<span class="underline"><span class="variable-name">numbers</span></span>, split <span class="keyword">while</span> (&lt;<span class="constant">IN</span>&gt;);
+<span class="keyword">foreach</span> (sort { $<span class="variable-name">a</span> &lt;=&gt; $<span class="variable-name">b</span> } @<span class="underline"><span class="variable-name">numbers</span></span>) {
+    printf <span class="string">"%20g\n"</span>, $<span class="variable-name">_</span>;
+}
+</pre>
+
+
+<h3><a name="sec56" id="sec56"></a>
+Exercise 2</h3>
+
+<p class="first">The cmp operator and The space craft operator.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #7fffd4;
+        font-weight: bold;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-11
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="type">my</span> %<span class="underline"><span class="variable-name">names</span></span> = qw<span class="string">/
+    fred flintstone Wilma Flintstone Barney Rubble
+    betty rubble Bamm-Bamm Rubble PEBBLES FLINTSTONE
+/</span>;
+<span class="type">my</span> @<span class="underline"><span class="variable-name">result</span></span> = sort by_name keys %<span class="underline"><span class="variable-name">names</span></span>;
+<span class="keyword">sub</span> <span class="function-name">by_name</span> {
+    <span class="string">"\L$names{$a}"</span> cmp <span class="string">"\L$names{$b}"</span>
+        or
+        <span class="string">"\L$a"</span> cmp <span class="string">"\L$b"</span>;
+}
+<span class="keyword">foreach</span> (@<span class="underline"><span class="variable-name">result</span></span>) {
+    printf <span class="string">"%15s %15s\n"</span>, $<span class="variable-name">_</span>, $<span class="variable-name">names</span>{$<span class="variable-name">_</span>};
+}
+</pre>
+
+
+<h3><a name="sec57" id="sec57"></a>
+Exercise 3</h3>
+
+<p class="first">Getting used to using last is important to me right now because I'm
+thinking procedures in traditional C style.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-11
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+
+chomp(<span class="type">my</span> $<span class="variable-name">string</span> = &lt;<span class="constant">STDIN</span>&gt;);
+chomp(<span class="type">my</span> $<span class="variable-name">char</span> = &lt;<span class="constant">STDIN</span>&gt;);
+<span class="type">my</span> $<span class="variable-name">position</span> = 0;
+<span class="keyword">while</span> (($<span class="variable-name">position</span> = index($<span class="variable-name">string</span>, $<span class="variable-name">char</span>, $<span class="variable-name">position</span>)) &gt; 0) {
+    print $<span class="variable-name">position</span>++ . <span class="string">" "</span>;
+}
+print <span class="string">"\n"</span>;
+</pre>
+
+
+
+<h2><a name="sec58" id="sec58"></a>
+Chapter 14 进程管理</h2>
+
+<h3><a name="sec59" id="sec59"></a>
+Exercise 1</h3>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+
+system <span class="string">"ls -l \$HOME"</span>;          <span class="comment"># $HOME is not a vriable in perl, but in shell.
+</span>
+<span class="comment-delimiter"># </span><span class="comment">This example shows how to use parent's environment variables.
+</span><span class="comment-delimiter"># </span><span class="comment">It's the special hash %ENV.
+</span>print <span class="string">"$ENV{'PATH'}\n"</span>;
+</pre>
+
+
+<h3><a name="sec60" id="sec60"></a>
+Exercise 2</h3>
+
+<p class="first">Maybe this will work. I have been reading some book about bash
+programming for a period. This question to me is just some file handle
+redirecting. Haven't figure out whether there are some Perl ways yet.</p>
+
+<pre class="example">
+ls -l 1&gt; ls.out 2&gt; ls.err
+</pre>
+
+<p>Redirecting file handle in Perl way.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style>open STDOUT, <span class="string">"&gt;ls.out"</span> or <span class="keyword">die</span> <span class="string">"Can't write to ls.out: $!\n"</span>;
+open STDERR, <span class="string">"&gt;ls.err"</span> or <span class="keyword">die</span> <span class="string">"Can't write to ls.err: $!\n"</span>;
+</pre>
+
+
+<h3><a name="sec61" id="sec61"></a>
+Exercise 3</h3>
+
+<p class="first">At the beginning, I thought this task as some sort of string split
+work. But I've got a really bad habit which makes me go check the key
+before doing some real work. So when the answer points out to me that
+only saturday and sunday which consists of our weekly leisure time are
+begin with letter `S'. So, here is the code.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="comment-delimiter">## </span><span class="comment">Copyright (c) Jake Chen 2007-11-11
+</span>
+<span class="keyword">use</span> <span class="constant">strict</span>;
+
+<span class="keyword">if</span> (<span class="string">`date`</span> =~ <span class="string">/^(Sat|Sun)/</span>) {
+    print <span class="string">"Go play.\n"</span>;
+} <span class="keyword">else</span> {
+    print <span class="string">"Work...\n"</span>;
+}
+</pre>
+
+
+
+<h2><a name="sec62" id="sec62"></a>
+Chapter 15 Perl 模块</h2>
+
+<h3><a name="sec63" id="sec63"></a>
+Exercise 1</h3>
+
+<p class="first">The book recommands me refer to `the big camel' to acquire more
+knowledge about hash. It seems it's just the right thing to do.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+<span class="keyword">use</span> <span class="constant">Module</span>::CoreList;
+
+<span class="type">my</span> %<span class="underline"><span class="variable-name">modules</span></span> = %{ $<span class="variable-name">Module::CoreList::version</span>{5.006} };
+
+print join <span class="string">"\n"</span>, keys %<span class="underline"><span class="variable-name">modules</span></span>;
+print <span class="string">"\n"</span>;
+</pre>
+
+
+<h3><a name="sec64" id="sec64"></a>
+Exercise 2</h3>
+
+<p class="first">After Perl version 5.6, module <code>File::Spec</code> provides procedural
+functions rather than its original object oriented style.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .comment {
+        /* font-lock-comment-face */
+        color: #add8e6;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #add8e6;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #87ceeb;
+        font-weight: bold;
+      }
+      .underline {
+        /* underline */
+        text-decoration: underline;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #40e0d0;
+        font-weight: bold;
+      }
+    --></style><span class="comment-delimiter">#</span><span class="comment">!/usr/bin/perl -w
+</span><span class="keyword">use</span> <span class="constant">strict</span>;
+<span class="keyword">use</span> <span class="constant">Cwd</span>;
+<span class="keyword">use</span> <span class="constant">File</span>::Spec::Functions;
+
+<span class="type">my</span> $<span class="variable-name">directory</span> = cwd;
+<span class="type">my</span> @<span class="underline"><span class="variable-name">files</span></span> = glob <span class="string">"*"</span>;
+<span class="keyword">foreach</span> <span class="type">my</span> $<span class="variable-name">file</span> (@<span class="underline"><span class="variable-name">files</span></span>) {
+    print catfile($<span class="variable-name">directory</span>, $<span class="variable-name">file</span>) . <span class="string">"\n"</span>;
+}
+</pre>
+
+
+<h3><a name="sec65" id="sec65"></a>
+Exercise 3</h3>
+
+<p><code>File::Basename</code> has some examples in the bok already, so I'll just
+write some specific things about modules in Perl. To import specific
+functions only, add import list when you import them.</p>
+
+<pre class="src" style="background-color:#262626;color:#bebebe;"><style type="text/css"><!--       .constant {
+        /* font-lock-constant-face */
+        color: #98fb98;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #afeeee;
+        font-weight: bold;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #87cefa;
+      }
+    --></style><span class="keyword">use</span> <span class="constant">File</span>::Basename qw<span class="string">/ basename /</span>
+</pre>
+
+<p>If you leave the list to a single space or some spaces (\s+), Perl
+would import no functions. Type the whole function `path' to use it.</p>
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>lighttpd | apache - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>lighttpd | apache</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">lighty or apache</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec2">speed vs. stability?</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">nginx</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec4">the HTTP protocol</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec5">GET &amp; POST in form</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec6">Configuration</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec7">conf Basics</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec8">debian's modified conf file structure</a></dt>
+<dt><a href="#sec9">lighty's conf file</a></dt>
+</dl>
+</dd>
+<dt><a href="#sec10">PHP installation</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec11">with fastcgi (lighty)</a></dt>
+<dt><a href="#sec12">in apache</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+lighty or apache</h2>
+
+<h3><a name="sec2" id="sec2"></a>
+speed vs. stability?</h3>
+
+<h4><a name="sec3" id="sec3"></a>
+nginx</h4>
+
+<p class="first">是一个俄罗斯人写的，在俄罗斯似乎比较流行，排名紧随 lighty 之后，不管怎
+样，支持竞争把。这两个很象，同样都是嵌入 perl，同样追求轻量级，贯彻简
+单就是美的原则。相对而言后者比较稳定，lighty 的 debug 工作还很漫长。感
+兴趣的话自己 google lighttpd vs. nginx 就知道了。</p>
+
+
+
+
+<h2><a name="sec4" id="sec4"></a>
+the HTTP protocol</h2>
+
+<h3><a name="sec5" id="sec5"></a>
+GET &amp; POST in form</h3>
+
+<blockquote>
+<p class="quoted">
+What is important to note is that when the POST method is used, the
+content type of the message is application/x-www-form-urlencoded. This
+content encoding type:</p>
+<p class="quoted"> - Specifies normal data encoding
+- Converts blanks to plus (+) signs
+- Converts non-alphanumeric characters to hexadecimal numbers preceded by a percentage sign (%)
+- Places an ampersand (&amp;) between each name=value pair</p>
+<p class="quoted">According to this encoding scheme, the message (name=Sally McDonald and email=<a href="mailto:smc@yahoo.com">smc@yahoo.com</a>) must be encoded as</p>
+
+<pre class="example">
+name=Sally+McDonald&amp;email=smc@yahoo.com
+</pre></p>
+
+</blockquote>
+
+<p>GET 与 POST 的区别在于，GET 将消息放在消息头中传递。长度限制，其一；安
+全性，其二。</p>
+
+<blockquote>
+<p class="quoted">
+The Hypertext Transfer Protocol (HTTP) is a request-reply application
+protocol which supports a fixed set of methods, such as GET, POST,
+PUT, DELETE, and so forth. The GET method is commonly used to request
+resources from a web server. Here are two sample GET requests:</p>
+<p class="quoted"> - GET / HTTP/1.1
+- GET /names.html HTTP/1.1</p>
+<p class="quoted">In addition, you can use both the GET and POST methods to send data to
+the server. These methods, however, have different ways of sending
+data to the server:</p>
+<p class="quoted"> - GET method: The input data is sent as part of the URL.
+- POST method: The input data is sent as an entity body in a separate message.</p>
+
+</blockquote>
+
+
+
+<h2><a name="sec6" id="sec6"></a>
+Configuration</h2>
+
+<h3><a name="sec7" id="sec7"></a>
+conf Basics</h3>
+
+<h4><a name="sec8" id="sec8"></a>
+debian's modified conf file structure</h4>
+
+<p class="first">debian 中对这两个 web 服务器的配置文件都做了分割，因为它们本身都有支持
+mod 动态扩展的特性，所以在 /etc/ 的相应目录下又有两个文件夹分别是：</p>
+
+<ul>
+<li>/etc/lighttpd/conf-available/</li>
+<li>/etc/lighttpd/conf-enabled/
+apache 也是如此，其他的比如 php5 我想也是如此。对这种做法其实似乎是褒
+贬不一，我个人比较喜欢，所以特别希望用 debian 作服务器，先天的管理氛围
+嘛。conf-enabled 目录下的东西都是到 conf-available 下的软连接，自己 ls
+-l 看看就晓得了。可以自己手动弄，不过推荐 debian 的方式。安装了相应的
+deb 包的话自然就有了这么两个命令：</li>
+<li>lighty-enable-mod</li>
+<li>lighty-disable-mod
+顾名思义，用了就知道了。</li>
+</ul>
+
+<p>read /etc/lighttpd/conf-available/README first</p>
+
+
+<h4><a name="sec9" id="sec9"></a>
+lighty's conf file</h4>
+
+<p class="first">所在目录我前头已经说了。它的配置文件使用 perl 写，我就是因此学的 perl。</p>
+
+
+
+<h3><a name="sec10" id="sec10"></a>
+PHP installation</h3>
+
+<h4><a name="sec11" id="sec11"></a>
+with fastcgi (lighty)</h4>
+
+<ul>
+<li>php5-cgi</li>
+<li>php5-gd (option)</li>
+<li>php5-pgsql (option)
+使用 aptitude 安装如上所述几个包，php5 这个包是和 apache 配套的，使用
+lighty 运行 PHP 的方式就是 cgi，以前听说好像有些问题之类的，需细究。装
+好之后记得 enable fastcgi 这个模块就行了。关于详细配置方面目前还未深
+入，留一篇 <a href="http://trac.lighttpd.net/trac/wiki/TutorialLighttpdAndPHP">官方入门</a> 和一篇另外的 <a href="http://hi.baidu.com/thinkinginlamp/blog/item/127209f77f3a9c26720eecda.html">文章连接</a> 在此。</li>
+</ul>
+
+
+<h4><a name="sec12" id="sec12"></a>
+in apache</h4>
+
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

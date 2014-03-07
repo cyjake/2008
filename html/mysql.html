@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+    <title>MySQL | PostgreSQL - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>MySQL | PostgreSQL</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here--><div class="toc"><h2>Table of Contents</h2>
+<dl>
+<dt><a href="#sec1">MySQL</a></dt>
+<dt><a href="#sec2">PostgreSQL</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec3">Intalling PostgreSQL</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec4">On debian derivative</a></dt>
+<dt><a href="#sec5">Managing Roles</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="#sec6">Learning SQL</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec7">Just A Few Notes</a></dt>
+<dd>
+<dl>
+<dt><a href="#sec8">Joins Between Tables</a></dt>
+<dt><a href="#sec9">Aggregate Functions</a></dt>
+<dt><a href="#sec10">Views</a></dt>
+<dt><a href="#sec11">Transactions</a></dt>
+<dt><a href="#sec12">Inheritance</a></dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+
+      <!-- Page published by Emacs Muse begins here -->
+      
+<h2><a name="sec1" id="sec1"></a>
+MySQL</h2>
+
+
+<h2><a name="sec2" id="sec2"></a>
+PostgreSQL</h2>
+
+<h3><a name="sec3" id="sec3"></a>
+Intalling PostgreSQL</h3>
+
+<h4><a name="sec4" id="sec4"></a>
+On debian derivative</h4>
+
+<p class="first">我自己现在用的发行版是 ubuntu，然而潜意识下还是把自己当 debian 用户。
+安装方式自然使用 apt，外网有 <a href="http://www.supriyadisw.net/2006/06/installing-postgresql-on-debian">一篇入门文章</a> 还不错。在常规的几个包之外推
+荐安装 <code>postgresql-docs</code> 这个包，文档很详细，到时候在
+<code>/usr/share/doc/postgresql/html/</code> 这里就找到了。有个东西要提醒的就是，第
+一次执行 createdb<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup> 的时候可能会遭遇到错误，</p>
+
+<pre class="example">
+nil@ubuntu:~$ createdb haha
+createdb: could not connect to database postgres: FATAL:  role &quot;nil&quot; does not exist
+</pre>
+在文档中也有描述。因为 debian 的包装好之后创建的用户是 postgres，遇到
+上述错误后有两个选择：su 到 postgres 用户再进行操作，此其一；把自己的
+用户名添加进 postgresql 支持的用户列表里面去。后者可以参考文档，前者在
+su 之前请记得先给 postgres 用户设置密码。
+
+
+<h4><a name="sec5" id="sec5"></a>
+Managing Roles</h4>
+
+<p class="first">上面并没有讲清楚，事实上角色(role)并非就是系统中的用户，于系统的用户和组没
+有直接联系，需要管理角色的话可以参考用户手册第十八章。</p>
+
+<blockquote>
+<p class="quoted">
+As an explanation for why this works: PostgreSQL user names are
+separate from operating system user accounts. When you connect to a
+database, you can choose what PostgreSQL user name to connect as; if
+you don't, it will default to the same name as your current operating
+system account. As it happens, there will always be a PostgreSQL user
+account that has the same name as the operating system user that
+started the server, and it also happens that that user always has
+permission to create databases. Instead of logging in as that user you
+can also specify the -U option everywhere to select a PostgreSQL user
+name to connect as.</p>
+
+</blockquote>
+
+<p>不过时刻区分角色与用户感觉不是很有必要，下面我就不区分了，不过会引起混
+淆的时候我会说明的。切换到 postgres 用户下执行如下命令即可：</p>
+
+<pre class="example">
+# su postgres
+# createdb mydb
+# createuser foo -P
+# exit
+# psql mydb			; if you're logged on as foo
+</pre>
+创建用户的时候会让你简单选择用户的一些选项，比如是否超级用户之类。
+还可以通过修改配置文件来得到系统用户登录的效果，我并没有尝试，具体做法
+参考上面那个连接。
+
+
+
+
+<h2><a name="sec6" id="sec6"></a>
+Learning SQL</h2>
+
+<h3><a name="sec7" id="sec7"></a>
+Just A Few Notes</h3>
+
+<h4><a name="sec8" id="sec8"></a>
+Joins Between Tables</h4>
+
+<ul>
+<li>inner join</li>
+<li>outer join</li>
+</ul>
+
+<pre class="example">
+SELECT * FROM weather, cities WHERE city = name;
+SELECT weather.city, weather.temp_lo, weather.temp_hi,
+       weather.prcp, weather.date, cities.location
+    FROM weather, cities
+    WHERE cities.name = weather.city;
+SELECT *
+    FROM weather INNER JOIN cities ON (weather.city = cities.name);
+SELECT *
+    FROM weather LEFT OUTER JOIN cities ON (weather.city = cities.name);
+SELECT W1.city, W1.temp_lo AS low, W1.temp_hi AS high,
+    W2.city, W2.temp_lo AS low, W2.temp_hi AS high
+    FROM weather W1, weather W2
+    WHERE W1.temp_lo &lt; W2.temp_lo
+    AND W1.temp_hi &gt; W2.temp_hi;
+SELECT *
+    FROM weather w, cities c
+    WHERE w.city = c.name;
+</pre>
+
+
+<h4><a name="sec9" id="sec9"></a>
+Aggregate Functions</h4>
+
+<pre class="example">
+SELECT city FROM weather WHERE temp_lo = max(temp_lo);     WRONG
+</pre>
+
+<blockquote>
+<p class="quoted">
+but this will not work since the aggregate max cannot be used in the
+WHERE clause. (This restriction exists because the WHERE clause
+determines which rows will be included in the aggregate calculation;
+so obviously it has to be evaluated before aggregate functions are
+computed.) However, as is often the case the query can be restated to
+accomplish the desired result, here by using a subquery:</p>
+
+</blockquote>
+
+<pre class="example">
+SELECT city FROM weather
+    WHERE temp_lo = (SELECT max(temp_lo) FROM weather);
+
+     city
+---------------
+ San Francisco
+(1 row)
+</pre>
+
+<p>The LIKE operator does pattern matching</p>
+
+
+<h4><a name="sec10" id="sec10"></a>
+Views</h4>
+
+<blockquote>
+<p class="quoted">
+Suppose the combined listing of weather records and city location is
+of particular interest to your application, but you do not want to
+type the query each time you need it. You can create a view over the
+query, which gives a name to the query that you can refer to like an
+ordinary table.</p>
+
+</blockquote>
+
+<pre class="example">
+CREATE VIEW myview AS
+    SELECT city, temp_lo, temp_hi, prcp, date, location
+        FROM weather, cities
+        WHERE city = name;
+
+SELECT * FROM myview;
+</pre>
+
+<hr />
+<p class="footnote"><a class="footnum" name="fn.1" href="#fnr.1">1.</a>  如果后面不加参数，那么一般的默认情况是给你创建与你的用户名相同的
+数据库。</p>
+
+
+<h4><a name="sec11" id="sec11"></a>
+Transactions</h4>
+
+<p class="first">PostgreSQL actually treats every SQL statement as being executed
+within a transaction. If you do not issue a BEGIN  command, then each
+individual statement has an implicit BEGIN and (if successful) COMMIT
+wrapped around it. A group of statements surrounded by BEGIN and
+COMMIT  is sometimes called a transaction block. If, partway through
+the transaction, we decide we do not want to commit (perhaps we just
+noticed that Alice's balance went negative), we can issue the command
+ROLLBACK instead of COMMIT, and all our updates so far will be
+canceled.</p>
+
+<p>It's possible to control the statements in a transaction in a more
+granular fashion through the use of savepoints. Savepoints allow you
+to selectively discard parts of the transaction, while committing the
+rest. After defining a savepoint with SAVEPOINT, you can if needed
+roll back to the savepoint with ROLLBACK TO. All the transaction's
+database changes between defining the savepoint and rolling back to it
+are discarded, but changes earlier than the savepoint are kept.</p>
+
+<p>After rolling back to a savepoint, it continues to be defined, so you
+can roll back to it several times. Conversely, if you are sure you
+won't need to roll back to a particular savepoint again, it can be
+released, so the system can free some resources. Keep in mind that
+either releasing or rolling back to a savepoint will automatically
+release all savepoints that were defined after it.</p>
+
+<ul>
+<li>BEGIN &amp; COMMIT</li>
+<li>ROLLBACK (TO)</li>
+<li>SAVEPOINT</li>
+</ul>
+
+<pre class="example">
+BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+SAVEPOINT my_savepoint;
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Bob';
+-- oops ... forget that and use Wally's account
+ROLLBACK TO my_savepoint;
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Wally';
+COMMIT;
+</pre>
+
+
+<h4><a name="sec12" id="sec12"></a>
+Inheritance</h4>
+
+<pre class="example">
+CREATE TABLE cities (
+  name       text,
+  population real,
+  altitude   int     -- (in ft)
+);
+
+CREATE TABLE capitals (
+  state      char(2)
+) INHERITS (cities);
+
+SELECT name, altitude
+    FROM ONLY cities		-- (to run over capitals)
+    WHERE altitude &gt; 500;
+</pre>
+
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./complang.html">Computer Languages</li>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./freebsd.html">FreeBSD</a>
+	    & <a href="./windows.html">Windows</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a>
+	    & <a href="./memo.html">白将黄胡</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://www.xiaonei.com/leto">校内网 - 陈养剑</a></li>
+	  <li><a href="http://www.douban.com/people/leto">乐透@豆瓣</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://pluskid.lifegoo.com/">
+	      pluskid - Free Mind</a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2009年04月09日</p>
+    </div><!-- footer-->
+  </body>
+</html>

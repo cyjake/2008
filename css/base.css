@@ -1,0 +1,42 @@
+/* for general use */
+body { 
+  font-family: "Microsoft Yahei", "Arial";
+  font-size: 10pt; text-align: center;
+  margin: 0; padding: 0; border: 0;
+  background-color: white;
+}
+/* clear up floats */
+br.clear { 
+  clear: both; 
+} 
+
+img {
+  border: 0;
+}
+
+/* greet properties */
+#greet {
+  font-size: 90%; padding: 0 1em 4em 1em; 
+  color: #414141; background: url("../images/bg.png") repeat-x;
+}
+#greet .email {
+  float: left; font-weight: bold;
+}
+#user {
+  text-align: right;  
+}
+#user input {
+  padding: 0; font-size: 90%; border: 0; 
+}
+
+/* content */
+#cont p.first:first-letter {
+  float: left; color: white; margin: 0.1em; padding: 0.2em;
+  background: url("../images/p_first.jpg") top left no-repeat;
+  font-size: 180%;
+}
+
+/* footer */
+#footer {
+  font-weight: bold; font-size: 90%; color: #414141;
+}

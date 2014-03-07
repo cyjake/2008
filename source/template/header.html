@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="<lisp>muse-html-meta-http-equiv</lisp>"
+          content="<lisp>muse-html-meta-content-type</lisp>" />
+    <meta name="generator" content="muse.el" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <lisp>
+      (let ((maintainer (muse-style-element :maintainer)))
+        (when maintainer
+          (concat "<link rev=\"made\" href=\"maintainer\"/>")))
+    </lisp><lisp>
+      (muse-style-element :style-sheet muse-publishing-current-style)
+    </lisp>
+    <title><lisp>
+	(concat (muse-publishing-directive "title")           
+	  (let ((author (muse-publishing-directive "author")))
+            (if (not (string= author (user-full-name)))
+        (concat " (by " author ")"))))
+    </lisp> - dotnil.org</title>
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDb</a></li>
+	<li><a href="./debian.html">Debian</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1><lisp>
+	  (concat (muse-publishing-directive "title")
+            (let ((author (muse-publishing-directive "author")))
+              (if (not (string= author (user-full-name)))
+                (concat " (by " author ")"))))
+      </lisp></h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!--contents goes here-->
+      <!-- Page published by Emacs Muse begins here -->
+      

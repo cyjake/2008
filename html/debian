@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>汇聚社区力量 - leto.org</title>
+    <meta name="generator" content="muse.el" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/wiki.css" />
+  </head>
+  <body>
+    <ul class="nav">
+	<li><a href="./">Home</a></li>
+	<li><a href="./movie.html">Little IMDB</a></li>
+	<li><a href="./tool.html">Smith</a></li>
+	<li><a href="./fiction.html">Reading</a></li>
+	<li><a href="./photo.html">Galleries</a></li>
+	<li><a href="./about.html">About</a></li>
+    </ul> <!-- navigator -->
+    <div id="greet">
+      <span class="email">leto@freecity.cn</span>
+      <h1>汇聚社区力量</h1>
+      <h2>Jake's Free House For Fun.</h2>
+    </div> <!-- greet --> 
+    <div id="wiki">
+      <div id="cont">
+      <!-- Page published by Emacs Muse begins here -->
+      
+Why debian
+
+<img src="../images/debian.png" />
+
+一般看到这种标题的下文便是很多横向的比较，例如 debian 比起别的发行版如何如何什么的。
+然而我天性八卦，因此此标题重在八这名字的来由。
+
+
+1.7 How does one pronounce Debian and what does this word mean?
+The project name is pronounced Deb'-ee-en，with a short e in Deb，
+and emphasis on the first syllable.  This word is a contraction of the names of
+Debra and Ian Murdock，who founded the project. (Dictionaries seem to offer
+some ambiguity in the pronunciation of Ian (!)，but Ian prefers ee'-en.)
+
+注意重点部分，Ian 是 debian 项目的建立者，那么另一半 Debra 是何许人也? 正是 Ian 的另一半,
+他建立这项目的时候还是大学生，Debra 则是他女朋友，据说现在已经终于上本垒，结婚了，够八吧?
+
+那么，为什么要选择 debian 呢? 我并没有尝试过很多发行版，入门靠的是 ubuntu，半年之后就改换了
+debian，用到现在。我对两者做个比较好了: 首先，ubuntu 继承了 debian 的大部分有点，
+比如系统的包管理机制，源的概念，亲爱的 apt-get ，在这方面两者没什么差别，
+而比起其他发行版来说算是优势(特别是对我这样的不喜欢编译软件的懒人);
+然后，ubuntu 的分支类别更加细致，默认使用 KDE 桌面系统的有 kubuntu，默认 GNOME 的 ubuntu,
+默认 xfce 的 xubuntu，还有针对教学使用的 edubuntu 之类的，细致的好处似乎是在于选择更多，
+事实上是更加狭窄，因为 ubuntu 的发布周期是定死的，稳定版或者叫长期支持版通常是隔几个周期，
+还稍微好一点，但是每隔六个月发布出来不稳定版实在是太不稳定，``躁动的蜥蜴"什么的，我试装过一个，
+改变不多，软件新一点，而已。同时，分支太细的问题显现出来，它的不同桌面系统共存做的远没有
+debian 优秀。最后，ubuntu 是个入门的好选择，因为它并不像 debian 那样追求 100% 的自由开放，
+所以源里面会有很多 debian 官方源没有的东西，比如 firefox，w32codecs 和中文字体什么的，
+debian 用 firefox 的开源部分构建了个替代叫做 iceweasel，我一直在用，还不错。
+
+插一句: 在配置网站伺服软件的时候我接触了很多 debian 风格的配置方式，和软件官方不太一样，
+如果你使用习惯了的话，应该会觉得这样显得更加清楚易懂。不过如果你不习惯，这风格未免太过冗余，
+算是萝卜白菜各有所爱吧。
+
+
+社区
+
+了解不深，我要加油!
+
+
+乐透
+
+就是 leto，写在校内网个人主页上的 linux，debian 相关入门介绍文章，不知道怎么起标题比较好，
+所以随便这么定了个，有点 James Gosling 看到橡树说橡树看到咖啡豆说咖啡豆的意思，哈哈。
+因为总觉得以后会不再上校内网了，所以每次写东西都会在这里先写着，再贴到那里去。
+重要的原因是那里的日志是全文显示的，我怕一次太长一,一b
+
+
+
+
+
+
+
+一些转载文章
+
+暂时放在这里吧
+
+
+
+
+
+      <!-- Page published by Emacs Muse ends here -->
+      </div><!-- cont -->
+      <div id="side">
+	<h3>工具配置笔记</h3>
+	<ul>
+	  <li><a href="./debian.html">Debian GNU/Linux</a></li>
+	  <li><a href="./emacs.html">Emacs Snapshot GTK</a></li>
+	  <li><a href="./fvwm.html">FVWM</a></li>
+	  <li><a href="./latex.html">LaTeX</a></li>
+	  <li><a href="./mplayer.html">Mplayer</a></li>
+	</ul>
+	<h3>学生习作</h3>
+	<ul>
+	  <li><a href="./foo.html">文学与人生课程作业</a></li>
+	  <li><a href="./bar.html">偶尔码字</a></li>
+	</ul>
+	<h3>在外网的我的窝</h3>
+	<ul>
+	  <li><a href="http://hi.baidu.com/irabbit">贫而乐, 富而好礼</a></li>
+	  <li><a href="http://xiaonei.com/leto">
+	      校内网 - 陈养剑</a></li>
+	</ul>
+	<h3>友情链接们</h3>
+	<ul>
+	  <li><a href="http://www.debian.org/">
+	      <img src="../images/powered_by_debian.png" 
+		   alt="Powered by debian" /></a></li>
+	  <li><a href="http://www.gnu.org/software/emacs/">
+	      <img src="../images/gnu_emacs_icon_grey.png"
+		   alt="Made with emacs" /></a></li>
+	  <li><a href="http://xcoder.cn/Muse/index.html">
+	      <img src="../images/muse-abailly.png"
+		   alt="Make with emacs-muse" /></a></li>
+	  <li><a href="http://www.getfirefox.com/">
+	      <img src="../images/get_firefox_small.png"
+		   alt="Get firefox?" /></a></li>
+	  <li><a href="http://easybar.8866.org/~pluskid/">
+	      pluskid - 星黎殿</a></li>
+	</ul>
+      </div><!-- side -->
+      <div><br class="clear" /></div><!-- to clear floats -->
+    </div><!-- wiki -->  
+    <div id="footer">
+      <a href="./">
+	<img src="../images/gerwinski-gnu-head.png" 
+	     alt="Go back to main page" /></a>
+      <p> By leto@freecity.cn 2007年09月06日</p>
+    </div><!-- footer-->
+  </body>
+</html>
